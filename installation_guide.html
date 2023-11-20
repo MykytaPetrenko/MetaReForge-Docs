@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MetaReForge Installation Guide &mdash; MetaReForge Docs 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MetaReForge Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><strong>MetaReForge Installation Guide</strong></a><ul>
+<li><a class="reference internal" href="#system-support"><strong>System support</strong></a></li>
+<li><a class="reference internal" href="#installing-metareforge-bledner-add-on"><strong>1. Installing MetaReForge Bledner Add-on</strong></a></li>
+<li><a class="reference internal" href="#how-to-link-metareforge-to-metahuman-dna-calibration"><strong>2. How to link MetaReForge to Metahuman DNA Calibration</strong></a></li>
+<li><a class="reference internal" href="#using-blender-with-python-3-9"><strong>2.1. Using Blender with python 3.9</strong></a></li>
+<li><a class="reference internal" href="#building-dna-calibration-binaries-for-different-python-versions"><strong>2.2. Building DNA Calibration binaries for different python versions</strong></a><ul>
+<li><a class="reference internal" href="#preparation">2.2.1. Preparation</a></li>
+<li><a class="reference internal" href="#installing-python">2.2.2. Installing Python</a></li>
+<li><a class="reference internal" href="#no-installers">No installers</a></li>
+<li><a class="reference internal" href="#installing-c-c-compiler">2.2.3. Installing C/C++ Compiler</a></li>
+<li><a class="reference internal" href="#installing-swig-can-be-done-from-blender">2.2.4. Installing Swig (Can be done from Blender)</a></li>
+<li><a class="reference internal" href="#build">2.2.5. Build</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MetaReForge Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><strong>MetaReForge Installation Guide</strong></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation_guide.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="metareforge-installation-guide">
+<h1><strong>MetaReForge Installation Guide</strong><a class="headerlink" href="#metareforge-installation-guide" title="Link to this heading"></a></h1>
+<section id="system-support">
+<h2><strong>System support</strong><a class="headerlink" href="#system-support" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Currently, the MetaReForge supported for <strong>Windows only</strong>.</p></li>
+<li><p>We will extend the list of supported systems if there is a demand for it. Our code itself is generally cross-platform, but we have not tested the Add-on on other platforms, so we cannot guarantee that it will work smoothly or even work at all.</p></li>
+</ul>
+</section>
+<section id="installing-metareforge-bledner-add-on">
+<h2><strong>1. Installing MetaReForge Bledner Add-on</strong><a class="headerlink" href="#installing-metareforge-bledner-add-on" title="Link to this heading"></a></h2>
+<p>The basic installation of the MetaReForge add-on is no different from installing any other Blender Add-on. The following steps need to be taken:</p>
+<ol class="simple">
+<li><p>Edit -&gt; Preferences -&gt; Add-ons</p></li>
+<li><p>Click “Install”</p></li>
+<li><p>Select MetaReForge zip</p></li>
+<li><p>Click “Install Addon”</p></li>
+<li><p>Activate the add-on.</p></li>
+</ol>
+<p align="center">
+  <img src="images/activate_addon.png"/>
+</p><p><strong>Important Note</strong></p>
+<p>However, to get full functionality, it is necessary to <strong>link MetaReForge with the Metahuman DNA Calibration Library</strong> by Epic Games, through which MetaReForge can access reading and writing operations of the proprietary DNA format. For example, you can update neutral joint transforms, as the neutral pose from an FBX file is unfortunately ignored by animation blueprints.</p>
+<p>In general, a DNA file determines how controls will transform joints, adjust corrective morph targets, animate texture maps, and more. This makes Metahuman one of the most realistic digital characters, especially in terms of facial animations.</p>
+</section>
+<section id="how-to-link-metareforge-to-metahuman-dna-calibration">
+<h2><strong>2. How to link MetaReForge to Metahuman DNA Calibration</strong><a class="headerlink" href="#how-to-link-metareforge-to-metahuman-dna-calibration" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://github.com/EpicGames/MetaHuman-DNA-Calibration">Metahuman DNA Callibration Library</a> does not contain pre-built binaries for most recent blender versions, so you can either download older blender builds (for example <a class="reference external" href="https://blender.community/c/graphicall/egnl/">Blender 3.3.7 LTS with python 3.9</a>) or build your own binaries for your target system.</p>
+<p><strong>MetaReForge</strong> comes with a usefull build util, that make the process a bit easier for regular user, but it still requires some general knowledge and skills. Thanks for your patience.</p>
+<p>In the next two sections I will show you both options</p>
+</section>
+<section id="using-blender-with-python-3-9">
+<h2><strong>2.1. Using Blender with python 3.9</strong><a class="headerlink" href="#using-blender-with-python-3-9" title="Link to this heading"></a></h2>
+<p>The easiest way to connect the library is to use a version of Blender built on Python 3.9. Yes, we don’t get the very latest version with all the new features (but, by the way, DNA-Calibration doesn’t have prebuilt binaries for the latest version of Maya at the time of writing this documentation either…), but the installation process takes minimal time.Before installing MetaReForge you need to download:</p>
+<ul class="simple">
+<li><p>Blender with Python 3.9 support (for example <a class="reference external" href="https://blender.community/c/graphicall/egnl/">Blender 3.3.7 LTS - Python 3.9 - Windows</a> from the blender community builds)</p></li>
+<li><p>MetaReForge Add-on (zip)</p></li>
+<li><p><a class="reference external" href="https://github.com/EpicGames/MetaHuman-DNA-Calibration/releases/tag/1.2.0">Metahuman-DNA-Calibration 1.2.0 release</a></p></li>
+</ul>
+<p>Step-by-step Installation Instructions</p>
+<ol class="simple">
+<li><p>Install compatible Blender with python 3.9 support</p></li>
+<li><p>Unpack the Metahuman-DNA-Calibration archive.</p></li>
+<li><p>Install MetaReForge (see <a class="reference external" href="#1-installing-metareforge-bledner-add-on">Section 1</a>)</p></li>
+<li><p>Expand the add-on settings, specify the path to the Metahuman-DNA-Calibration root directory and click ‘copy dnacalib’. The “Files not found” check should change to “Files found”.</p></li>
+<li><p>Restart Blender. Go back to the add-on settings. Two checks should be passed: “library files found”, “library files are linked”.</p></li>
+</ol>
+<p>Enjoy using the add-on. These steps only need to be done once.</p>
+</section>
+<section id="building-dna-calibration-binaries-for-different-python-versions">
+<h2><strong>2.2. Building DNA Calibration binaries for different python versions</strong><a class="headerlink" href="#building-dna-calibration-binaries-for-different-python-versions" title="Link to this heading"></a></h2>
+<p>Compiling Metahuman DNA Calibration is not a very complicated process. All that is required from you is the ability to follow instructions and a bit of patience. I tried to describe the process in as much detail as possible and even automate it a bit. Even someone who is not familiar with programming at all can handle it. For those who develop in C++ in Unreal Engine, this step will seem like a walk in the park.</p>
+<p>The advantage of this approach is that by spending just 10 minutes of your time, you will be using the Add-on with the latest version of Blender and all its new features.</p>
+<section id="preparation">
+<h3>2.2.1. Preparation<a class="headerlink" href="#preparation" title="Link to this heading"></a></h3>
+<p>First, you need to prepare. It’s important to know which version of Python your Blender uses, because it is the main reason for incompatibility with pre-built binaries from Epic’s github repository.
+You can check this in the Python Console.
+If Blender is set to default, then in the Scripting tab on the left side, you will see the interactive Python Console which displays information about Python. Otherwise you may set any current editor type to “Python Console” (Shift + F4).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PYTHON INTERACTIVE CONSOLE 3.10.13 (main, date) [MSC v.1928 64 bit (AMD64)]
+                           |  |  |                      |    |        |           
+          Major Version ───┘  |  |                      |    |        |
+          Minor Version ──────┘  |                      |    |        |
+          Micro Version ─────────┘                      |    |        |
+                              Toolset/Compiler used ────┘    |        |
+                              Bit-version ───────────────────┘        |
+                              Architecture (Processor type) ──────────┘
+</pre></div>
+</div>
+<p>Firstly, we are interested in the major and minor versions of Python, as well as the bit-version, and the toolset/compliler used during the compilation of the Python interpreter. The micro version is not as important, but it is recommended to use the closest one.</p>
+</section>
+<section id="installing-python">
+<h3>2.2.2. Installing Python<a class="headerlink" href="#installing-python" title="Link to this heading"></a></h3>
+<p>Python can be downloaded from the official website <a class="reference external" href="https://www.python.org/downloads/">python.org</a>. If you have Python 3.10.13, it would be perfect to use the same Python library when compiling the DNA Calibration Library. However, when you try to get an installer for the exact version, the installer may not be available, and the text on the release page will say:</p>
+</section>
+<section id="no-installers">
+<h3>No installers<a class="headerlink" href="#no-installers" title="Link to this heading"></a></h3>
+<p>According to the release calendar specified in PEP 619, Python 3.10 is now in the “security fixes only” stage of its life cycle: 3.10 branch only accepts security fixes and releases of those are made irregularly in source-only form until October 2026. Python 3.10 isn’t receiving regular bug fixes anymore, and binary installers are no longer provided for it. Python 3.10.11 was the last full bugfix release of Python 3.10 with binary installers.</p>
+</section>
+<p>From the text, we can understand which version is available with an easy-to-use installer and get it. A different micro version is okay. So we may get Python 3.10.11 as the lates available with installer.
+Make sure that you download the installer for the right bit-version (64-bit in most cases).</p>
+<p>Run the downloaded Python installer. During installation, it is <strong>ESSENTIAL</strong> to add the path to the Python executable files to the system PATH variable by checking the appropriate box.</p>
+<p><img alt="install_python" src="images/python_installer.png" /></p>
+<section id="installing-c-c-compiler">
+<h3>2.2.3. Installing C/C++ Compiler<a class="headerlink" href="#installing-c-c-compiler" title="Link to this heading"></a></h3>
+<p>The next crucial step is the installation of a C/C++ compiler. Without delving into the details, the compiler should be similar to the one used for compiling the Python interpreter. For Windows, this is Microsoft Visual C++ (MVC).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSC</span> <span class="n">v</span><span class="mf">.1928</span> <span class="mi">64</span> <span class="n">bit</span>
+</pre></div>
+</div>
+<p>The number “1928” indicates the version of the Microsoft C/C++ optimizing compiler and linker tools. This version number helps you identify the corresponding MSVC toolset version.</p>
+<p>Here’s a brief mapping for reference:</p>
+<ul class="simple">
+<li><p>MSC v.<strong>190</strong>X → MSVC toolset version <strong>140</strong> (Visual Studio 2015)</p></li>
+<li><p>MSC v.<strong>191</strong>X → MSVC toolset version <strong>141</strong> (Visual Studio 2017)</p></li>
+<li><p>MSC v.<strong>192</strong>X → MSVC toolset version <strong>142</strong> (Visual Studio 2019)</p></li>
+<li><p>MSC v.<strong>193</strong>X → MSVC toolset version <strong>143</strong> (Visual Studio 2022)</p></li>
+</ul>
+<p>Fortunatelly, all 14x MSVC releases have a stable ABI, and binaries built with these versions can be mixed in a forwards-compatible manner.</p>
+<p>So generally for python 3.10 built with MSC v.1928 we can use either MSVC 142 (as the closest) or MSVC 143 (as the latest).</p>
+<p>The compiler can be installed from <a class="reference external" href="https://visualstudio.microsoft.com/downloads/">Visual Studio</a> or from Visual Studio Build Tools (if you are not going to use IDE)</p>
+<p>When you install either Visual Studio or Build Tools you will configure components in Visual Studio Installer.</p>
+<p>You need to:</p>
+<ul class="simple">
+<li><p>Tick “Desktop development with C++”</p></li>
+<li><p>Choose Windows SDK for your platform (Win 10 or 11)</p></li>
+<li><p>Optionally you can tick MSVC 142 (MSVC 143 is ticked by default)</p></li>
+<li><p>Make sure that option “C++ CMake Tools for Windows” is also ticked</p></li>
+</ul>
+<p><img alt="visual_studio" src="images/visual_studio.png" /></p>
+</section>
+<section id="installing-swig-can-be-done-from-blender">
+<h3>2.2.4. Installing Swig (Can be done from Blender)<a class="headerlink" href="#installing-swig-can-be-done-from-blender" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Download Swig for windows from <a class="reference external" href="https://www.swig.org/download.html">Swig Downloads</a></p></li>
+<li><p>Extract archive</p></li>
+</ul>
+<p><strong>Note:</strong> It is not necessary to do this step manually. It can be done in one click from Blender.</p>
+</section>
+<section id="build">
+<h3>2.2.5. Build<a class="headerlink" href="#build" title="Link to this heading"></a></h3>
+<p>When the MetaReForge add-on is installed and activated, we move to the add-on preferences. You should see messages indicating “Library files are missing” and “Library files are NOT LINKED”, meaning that the DNA Calibration Library is not connected. Next, you need to go through the compilation settings.</p>
+<p>The first important parameter is the path to the <strong>CMake utility</strong>. If you installed CMake with Visual Studio following the instructions in section 2.2, then the path to CMake should be detected automatically. You should also see a checkbox on the left indicating that the executable file has been found.</p>
+<p>The next step is to set the path to the <strong>Swig utility</strong>. If you have downloaded and unpacked it, then specify the path to the root of this utility. A checkbox should appear on the left.
+If you haven’t installed it, you can instead specify the path to the directory where you want to download and unpack Swig (for example, “C:/temp/”) and press the download button. After that, the path to Swig will update automatically and will point to the root directory into which the utility was unpacked.</p>
+<p>Next, you need to specify the path to the <strong>DNA Calibration Library</strong>. Similarly to Swig, you can either specify the path to a previously downloaded and unpacked library or specify the path where you want to download it and press the download button. This gives us the third checkbox.</p>
+<p>Final touches. You need to select the version of Python. By default, at the first launch of the add-on, it will attempt to identify the most suitable version from those installed on the computer. More about choosing the Python version was in <a class="reference external" href="#222-installing-python">section 2.2.2</a>.</p>
+<p>Next, you need to select the C++ toolset/compiler. By default, it will be set to v143 with which everything should work, but optionally you can use v142 if you additionally installed it in Visual Studio. More about choosing the version of the toolset was in <a class="reference external" href="#223-installing-cc-compiler">section 2.2.3</a>.</p>
+<p>Click <strong>“Build DNA-Calibration”</strong>, wait a couple of minutes and it’s done. Now the “Library files are missing” should change to “Library files are found”. The last thing left to do is to restart Blender and see the message “Library files are linked” instead of “NOT LINKED”.</p>
+<p>These actions need to be done only once. You can also save the files and directories “&lt;PATH_TO_METAFORGE_ADDON&gt;/third_party/dnacalib/” so that when updating Blender (if the minor Python version has not changed) or reinstalling the operating system, you won’t need to repeat these steps; just place the files in the required directory of the add-on.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Sqeezy Pixels (Mykyta Petrenko).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
