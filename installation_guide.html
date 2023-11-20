@@ -54,7 +54,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#building-dna-calibration-binaries-for-different-python-versions"><strong>2.2. Building DNA Calibration binaries for different python versions</strong></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#preparation">2.2.1. Preparation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installing-python">2.2.2. Installing Python</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#no-installers">No installers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installing-c-c-compiler">2.2.3. Installing C/C++ Compiler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installing-swig-can-be-done-from-blender">2.2.4. Installing Swig (Can be done from Blender)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#build">2.2.5. Build</a></li>
@@ -162,15 +161,16 @@ If Blender is set to default, then in the Scripting tab on the left side, you wi
 <section id="installing-python">
 <h3>2.2.2. Installing Python<a class="headerlink" href="#installing-python" title="Link to this heading"></a></h3>
 <p>Python can be downloaded from the official website <a class="reference external" href="https://www.python.org/downloads/">python.org</a>. If you have Python 3.10.13, it would be perfect to use the same Python library when compiling the DNA Calibration Library. However, when you try to get an installer for the exact version, the installer may not be available, and the text on the release page will say:</p>
-</section>
-<section id="no-installers">
-<h3>No installers<a class="headerlink" href="#no-installers" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>No installers</strong></p>
 <p>According to the release calendar specified in PEP 619, Python 3.10 is now in the “security fixes only” stage of its life cycle: 3.10 branch only accepts security fixes and releases of those are made irregularly in source-only form until October 2026. Python 3.10 isn’t receiving regular bug fixes anymore, and binary installers are no longer provided for it. Python 3.10.11 was the last full bugfix release of Python 3.10 with binary installers.</p>
-</section>
+</div></blockquote>
 <p>From the text, we can understand which version is available with an easy-to-use installer and get it. A different micro version is okay. So we may get Python 3.10.11 as the lates available with installer.
 Make sure that you download the installer for the right bit-version (64-bit in most cases).</p>
 <p>Run the downloaded Python installer. During installation, it is <strong>ESSENTIAL</strong> to add the path to the Python executable files to the system PATH variable by checking the appropriate box.</p>
-<p><img alt="install_python" src="_images/python_installer.png" /></p>
+<p align="center">
+  <img src="./images/python_installer.png"/>
+</p></section>
 <section id="installing-c-c-compiler">
 <h3>2.2.3. Installing C/C++ Compiler<a class="headerlink" href="#installing-c-c-compiler" title="Link to this heading"></a></h3>
 <p>The next crucial step is the installation of a C/C++ compiler. Without delving into the details, the compiler should be similar to the one used for compiling the Python interpreter. For Windows, this is Microsoft Visual C++ (MVC).</p>
@@ -196,8 +196,9 @@ Make sure that you download the installer for the right bit-version (64-bit in m
 <li><p>Optionally you can tick MSVC 142 (MSVC 143 is ticked by default)</p></li>
 <li><p>Make sure that option “C++ CMake Tools for Windows” is also ticked</p></li>
 </ul>
-<p><img alt="visual_studio" src="_images/visual_studio.png" /></p>
-</section>
+<p align="center">
+  <img src="./images/visual_studio.png"/>
+</p></section>
 <section id="installing-swig-can-be-done-from-blender">
 <h3>2.2.4. Installing Swig (Can be done from Blender)<a class="headerlink" href="#installing-swig-can-be-done-from-blender" title="Link to this heading"></a></h3>
 <ul class="simple">

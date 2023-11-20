@@ -11,7 +11,7 @@ First, we need to prepare the files for editing. You will need:
 3. The DNA file. It's usually found in the Quixel Bridge asset folder (by default, look in C:\Users<USER_NAME>\Documents\Megascans Library).
 
 <p align="center">
-  <img src="images/export_as_fbx.png"/>
+  <img src="./images/export_as_fbx.png"/>
 </p>
 
 ### **Scene Setup**
