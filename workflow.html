@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MetaReForge User Guide &mdash; MetaReForge Docs 1.0 documentation</title>
+  <title>Workflow &mdash; MetaReForge Docs 1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -17,8 +17,10 @@
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Installation Guide" href="installation_guide.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,27 +42,25 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#"><strong>MetaReForge User Guide</strong></a><ul>
-<li><a class="reference internal" href="#intro"><strong>Intro</strong></a></li>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html"><strong>MetaReForge</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation_guide.html"><strong>Installation Guide</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Workflow</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preliminary-setup"><strong>Preliminary Setup</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scene-setup"><strong>Scene Setup</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-fbx"><strong>1. Importing FBX</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-edit-mesh-edit-armature-and-other-auxiliary-objects"><strong>2. Creating Edit Mesh, Edit Armature, and Other Auxiliary Objects</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-the-mesh"><strong>2. Editing the Mesh</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-the-armature"><strong>3. Editing the Armature</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applying-changes-to-exportable-objects"><strong>4. Applying Changes to Exportable Objects</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quality-check-and-re-computing-normals"><strong>5. Quality Check and Re-Computing Normals</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#export-fbx"><strong>6. Export FBX</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-dna"><strong>7. Update DNA</strong></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#workflow"><strong>Workflow</strong></a><ul>
-<li><a class="reference internal" href="#preliminary-setup"><strong>Preliminary Setup</strong></a></li>
-<li><a class="reference internal" href="#scene-setup"><strong>Scene Setup</strong></a></li>
-<li><a class="reference internal" href="#importing-fbx"><strong>1. Importing FBX</strong></a></li>
-<li><a class="reference internal" href="#creating-edit-mesh-edit-armature-and-other-auxiliary-objects"><strong>2. Creating Edit Mesh, Edit Armature, and Other Auxiliary Objects</strong></a></li>
-<li><a class="reference internal" href="#editing-the-mesh"><strong>2. Editing the Mesh</strong></a></li>
-<li><a class="reference internal" href="#editing-the-armature"><strong>3. Editing the Armature</strong></a></li>
-<li><a class="reference internal" href="#applying-changes-to-exportable-objects"><strong>4. Applying Changes to Exportable Objects</strong></a></li>
-<li><a class="reference internal" href="#quality-check-and-re-computing-normals"><strong>5. Quality Check and Re-Computing Normals</strong></a></li>
-<li><a class="reference internal" href="#export-fbx"><strong>6. Export FBX</strong></a></li>
-<li><a class="reference internal" href="#update-dna"><strong>7. Update DNA</strong></a></li>
 </ul>
-</li>
-</ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -75,9 +75,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><strong>MetaReForge User Guide</strong></li>
+      <li class="breadcrumb-item active"><strong>Workflow</strong></li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/user_manual.md.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/workflow.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -85,15 +85,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="metareforge-user-guide">
-<h1><strong>MetaReForge User Guide</strong><a class="headerlink" href="#metareforge-user-guide" title="Link to this heading"></a></h1>
-<section id="intro">
-<h2><strong>Intro</strong><a class="headerlink" href="#intro" title="Link to this heading"></a></h2>
-<p>Epic Games Metahuman Creator offers a user-friendly platform for Unreal Engine developers, facilitating easy and cost-effective character creation. However, its primary output of human-like characters limits the ability to develop varied, stylized entities. While exporting the character and making adjustments in an external 3D editor like Blender seems a plausible solution, it comes with its quirks. The built-in post-process animation blueprint (more specifically, AnimNode_RigLogic) does not recognize the updated rest bone positions, assuming the bones remain in their initial locations prior to the adjustment.</p>
-<p><strong>Our primary goal</strong> is to enhance the editing capabilities of Metahumans, creating a tool that is both straightforward to use and offers ample creative freedom. Manual editing of Metahumans in Blender presents a myriad of challenges and non-obvious aspects that we aim to simplify for you. Time is our most valuable resource, and it’s better spent on realizing bold creative ideas rather than endlessly searching for solutions to technical issues.</p>
-</section>
-</section>
-<section id="workflow">
+  <section id="workflow">
 <h1><strong>Workflow</strong><a class="headerlink" href="#workflow" title="Link to this heading"></a></h1>
 <p>We’ve designed MetaReForge addon interface to be as clear and structured as possible.  All features are organized into blocks within the N-panel under the ‘MRF’ category. The majority of these features are accessible in object mode, while additional utilities for armature editing become available in armature edit mode.</p>
 <section id="preliminary-setup">
@@ -204,7 +196,9 @@ Note: If you don’t see the necessary functionality in the <strong>“DNA Updat
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation_guide.html" class="btn btn-neutral float-left" title="Installation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
