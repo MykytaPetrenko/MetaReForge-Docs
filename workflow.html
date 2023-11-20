@@ -44,19 +44,19 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="about.html"><strong>MetaReForge</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation_guide.html"><strong>Installation Guide</strong></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Workflow</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#preliminary-setup"><strong>Preliminary Setup</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#scene-setup"><strong>Scene Setup</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#importing-fbx"><strong>1. Importing FBX</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-edit-mesh-edit-armature-and-other-auxiliary-objects"><strong>2. Creating Edit Mesh, Edit Armature, and Other Auxiliary Objects</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#editing-the-mesh"><strong>2. Editing the Mesh</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#editing-the-armature"><strong>3. Editing the Armature</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#applying-changes-to-exportable-objects"><strong>4. Applying Changes to Exportable Objects</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quality-check-and-re-computing-normals"><strong>5. Quality Check and Re-Computing Normals</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation_guide.html">Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preliminary-setup">Preliminary Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scene-setup">Scene Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-fbx">1. Importing FBX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-edit-mesh-edit-armature-and-other-auxiliary-objects">2. Creating Edit Mesh, Edit Armature, and Other Auxiliary Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-the-mesh">3. Editing the Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-the-armature">4. Editing the Armature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applying-changes-to-exportable-objects">5. Applying Changes to Exportable Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quality-check-and-re-computing-normals">6. Quality Check and Re-Computing Normals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#export-fbx"><strong>6. Export FBX</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#update-dna"><strong>7. Update DNA</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-dna">8. Update DNA</a></li>
 </ul>
 </li>
 </ul>
@@ -75,7 +75,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><strong>Workflow</strong></li>
+      <li class="breadcrumb-item active">Workflow</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/workflow.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -86,10 +86,10 @@
            <div itemprop="articleBody">
              
   <section id="workflow">
-<h1><strong>Workflow</strong><a class="headerlink" href="#workflow" title="Link to this heading"></a></h1>
+<h1>Workflow<a class="headerlink" href="#workflow" title="Link to this heading"></a></h1>
 <p>We’ve designed MetaReForge addon interface to be as clear and structured as possible.  All features are organized into blocks within the N-panel under the ‘MRF’ category. The majority of these features are accessible in object mode, while additional utilities for armature editing become available in armature edit mode.</p>
 <section id="preliminary-setup">
-<h2><strong>Preliminary Setup</strong><a class="headerlink" href="#preliminary-setup" title="Link to this heading"></a></h2>
+<h2>Preliminary Setup<a class="headerlink" href="#preliminary-setup" title="Link to this heading"></a></h2>
 <p>First, we need to prepare the files for editing. You will need:</p>
 <ol class="simple">
 <li><p>The head’s FBX file</p></li>
@@ -106,16 +106,16 @@
   <img src="./images/export_as_fbx.png"/>
 </p></section>
 <section id="scene-setup">
-<h2><strong>Scene Setup</strong><a class="headerlink" href="#scene-setup" title="Link to this heading"></a></h2>
+<h2>Scene Setup<a class="headerlink" href="#scene-setup" title="Link to this heading"></a></h2>
 <p>The first thing to do when opening a new scene in Blender is to set the units of measurement (this is necessary to match the units in Unreal Engine). The metric system should be selected with a Unit Scale = 0.01. If the units are not set up, the addon panel will display a <strong>Setup Scene</strong> button, which will configure the units as mentioned earlier.</p>
 </section>
 <section id="importing-fbx">
-<h2><strong>1. Importing FBX</strong><a class="headerlink" href="#importing-fbx" title="Link to this heading"></a></h2>
+<h2>1. Importing FBX<a class="headerlink" href="#importing-fbx" title="Link to this heading"></a></h2>
 <p>To import files, use the <strong>“FBX Import”</strong> block on the N-panel of the addon (Object mode). Specify which body parts you want to import (head, body, or both), indicate the path to the corresponding files, and click <strong>“Import FBX”</strong>.</p>
 <p><strong>Note.</strong> It’s not recommended to import FBX files in any other way. The addon removes unnecessary elements, analyzes LODs, and assigns them to the corresponding internal properties (which can be viewed by expanding the “Head Objects” and “Body Objects” drop-down lists). This can’t be done manually.</p>
 </section>
 <section id="creating-edit-mesh-edit-armature-and-other-auxiliary-objects">
-<h2><strong>2. Creating Edit Mesh, Edit Armature, and Other Auxiliary Objects</strong><a class="headerlink" href="#creating-edit-mesh-edit-armature-and-other-auxiliary-objects" title="Link to this heading"></a></h2>
+<h2>2. Creating Edit Mesh, Edit Armature, and Other Auxiliary Objects<a class="headerlink" href="#creating-edit-mesh-edit-armature-and-other-auxiliary-objects" title="Link to this heading"></a></h2>
 <p>Once the FBX files are imported, we can proceed to initialize auxiliary and editable objects. For this, we move to the <strong>“Edit Shape”</strong> block.</p>
 <p>To ensure clarity, let’s review the terminology used in the addon:</p>
 <ul class="simple">
@@ -129,7 +129,7 @@
 </ul>
 </section>
 <section id="editing-the-mesh">
-<h2><strong>2. Editing the Mesh</strong><a class="headerlink" href="#editing-the-mesh" title="Link to this heading"></a></h2>
+<h2>3. Editing the Mesh<a class="headerlink" href="#editing-the-mesh" title="Link to this heading"></a></h2>
 <p>Once the auxiliary objects are initialized, you can start editing the mesh. Blender offers a wide range of editing capabilities, but if you need more, you can export the Final Mesh and edit it in an external editor.</p>
 <p><strong>It’s crucial to remember:</strong></p>
 <ul class="simple">
@@ -138,7 +138,7 @@
 </ul>
 </section>
 <section id="editing-the-armature">
-<h2><strong>3. Editing the Armature</strong><a class="headerlink" href="#editing-the-armature" title="Link to this heading"></a></h2>
+<h2>4. Editing the Armature<a class="headerlink" href="#editing-the-armature" title="Link to this heading"></a></h2>
 <p>After achieving the desired mesh shape, it’s necessary to adjust the skeleton to these changes. The Metahuman skeleton contains about a thousand bones, and editing it manually is tedious and time-consuming. Therefore, our addon includes tools to simplify this routine by transferring the deformation from the final mesh to the skeleton.</p>
 <p>To start editing the skeleton, you need to select it and switch to edit mode. If everything is done correctly, you will see the necessary tools in the MRF section on the N-panel.
 All tools transfer the deformation of the final mesh only to the selected bones, allowing for better control of the process.</p>
@@ -155,7 +155,7 @@ All tools transfer the deformation of the final mesh only to the selected bones,
 </ul>
 </section>
 <section id="applying-changes-to-exportable-objects">
-<h2><strong>4. Applying Changes to Exportable Objects</strong><a class="headerlink" href="#applying-changes-to-exportable-objects" title="Link to this heading"></a></h2>
+<h2>5. Applying Changes to Exportable Objects<a class="headerlink" href="#applying-changes-to-exportable-objects" title="Link to this heading"></a></h2>
 <p>When the creative part of the work is completed, it’s necessary to transfer all changes to the exportable models. For this, we go to the <strong>“Update Original”</strong> block. By clicking on the <strong>“Synchronize”</strong> button, changes from the Final Mesh (more precisely, the difference between the Final Mesh and the Initial Mesh) will be applied to the individual LODs, and the updated position of the bones will also be applied to the original armature objects.</p>
 <p>No additional tuning is generally required, but a few parameters are available for dealing with exceptional cases:</p>
 <ul class="simple">
@@ -164,7 +164,7 @@ All tools transfer the deformation of the final mesh only to the selected bones,
 </ul>
 </section>
 <section id="quality-check-and-re-computing-normals">
-<h2><strong>5. Quality Check and Re-Computing Normals</strong><a class="headerlink" href="#quality-check-and-re-computing-normals" title="Link to this heading"></a></h2>
+<h2>6. Quality Check and Re-Computing Normals<a class="headerlink" href="#quality-check-and-re-computing-normals" title="Link to this heading"></a></h2>
 <p>After applying the changes, you can review the results. For convenience, there is a <strong>“View”</strong> block at the top of the panel, where you can switch between LODs and editable objects. There may be minor imperfections, which can be corrected manually.</p>
 <p>It’s important to pay attention to the seam between the head and body and also to the seams along the UV unwrap, as Metahuman actually has mesh splits at the UV seams. If sharp edges are noticeable, normals need to be recalculated, and we have developed a specific function for this.</p>
 <p>After clicking on <strong>“Re-Compute Split Normals”</strong>, the following will occur:</p>
@@ -180,7 +180,7 @@ All tools transfer the deformation of the final mesh only to the selected bones,
 <p>Once all LODs look as desired, it’s time to export them for use in Unreal Engine. Based on my experience, I prefer to export LODs separately because this way, you don’t have to spend a lot of time configuring Material Slots in Unreal Engine. Following this logic, we have a utility for exporting. You just need to specify the path and click <strong>“Export FBX”</strong>. There’s no need to worry about settings, selecting the right objects, etc. Everything will be done for you. As a result, you should see 8 LODs for the head and 4 LODs for the body in the folder, so you can upload these files to Unreal Engine.</p>
 </section>
 <section id="update-dna">
-<h2><strong>7. Update DNA</strong><a class="headerlink" href="#update-dna" title="Link to this heading"></a></h2>
+<h2>8. Update DNA<a class="headerlink" href="#update-dna" title="Link to this heading"></a></h2>
 <p>The Metahuman Animation blueprint heavily relies on the DNA file. Therefore, if you want your custom Metahuman to retain the ability to perform realistic facial animations, updating the DNA file is an ESSENTIAL step.
 Note: If you don’t see the necessary functionality in the <strong>“DNA Update”</strong> block, check the Installation Guide. For troubleshooting, refer to our Discord channel.</p>
 <p>All you need to do is:</p>
