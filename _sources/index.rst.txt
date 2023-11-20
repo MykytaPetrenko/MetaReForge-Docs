@@ -3,14 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to MetaReForge Docs's documentation!
+Welcome to MetaReForge Docs!
 ============================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   installation_guide.md
-   user_manual.md
+   installation_guide
+   user_manual
 
 Indices and tables
 ==================
