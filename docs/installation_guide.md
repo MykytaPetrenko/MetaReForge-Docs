@@ -15,7 +15,7 @@ The basic installation of the MetaReForge add-on is no different from installing
 6. Activate the add-on.
 
 <p align="center">
-  <img src="../images/activate_addon.png"/>
+  <img src="./images/activate_addon.png"/>
 </p>
 
 **Important Note**
