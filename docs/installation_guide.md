@@ -72,15 +72,19 @@ Firstly, we are interested in the major and minor versions of Python, as well as
 #### 2.2.2. Installing Python
 Python can be downloaded from the official website [python.org](https://www.python.org/downloads/). If you have Python 3.10.13, it would be perfect to use the same Python library when compiling the DNA Calibration Library. However, when you try to get an installer for the exact version, the installer may not be available, and the text on the release page will say:
 
->#### No installers
+> **No installers**
+>
 >According to the release calendar specified in PEP 619, Python 3.10 is now in the "security fixes only" stage of its life cycle: 3.10 branch only accepts security fixes and releases of those are made irregularly in source-only form until October 2026. Python 3.10 isn't receiving regular bug fixes anymore, and binary installers are no longer provided for it. Python 3.10.11 was the last full bugfix release of Python 3.10 with binary installers.
+
 
 From the text, we can understand which version is available with an easy-to-use installer and get it. A different micro version is okay. So we may get Python 3.10.11 as the lates available with installer.
 Make sure that you download the installer for the right bit-version (64-bit in most cases).
 
 Run the downloaded Python installer. During installation, it is **ESSENTIAL** to add the path to the Python executable files to the system PATH variable by checking the appropriate box.
 
-![install_python](images/python_installer.png)
+<p align="center">
+  <img src="./images/python_installer.png"/>
+</p>
 
 #### 2.2.3. Installing C/C++ Compiler
 
@@ -111,7 +115,9 @@ You need to:
 - Optionally you can tick MSVC 142 (MSVC 143 is ticked by default)
 - Make sure that option "C++ CMake Tools for Windows" is also ticked
 
-![visual_studio](images/visual_studio.png)
+<p align="center">
+  <img src="./images/visual_studio.png"/>
+</p>
 
 #### 2.2.4. Installing Swig (Can be done from Blender)
 
