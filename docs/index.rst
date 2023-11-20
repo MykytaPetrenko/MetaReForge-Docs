@@ -13,10 +13,3 @@ Welcome to MetaReForge Docs!
    about.md
    installation_guide.md
    workflow.md
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
