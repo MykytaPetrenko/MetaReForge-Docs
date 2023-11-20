@@ -1,4 +1,4 @@
-## **MetaReForge Installation Guide**
+# **Installation Guide**
 
 ### **System support**
 - Currently, the MetaReForge supported for **Windows only**.

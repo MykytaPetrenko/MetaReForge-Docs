@@ -5,6 +5,10 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+from recommonmark.transform import AutoStructify
+
+def setup(app):
+    app.add_transform(AutoStructify)
 
 project = 'MetaReForge Docs'
 copyright = '2023, Sqeezy Pixels (Mykyta Petrenko)'

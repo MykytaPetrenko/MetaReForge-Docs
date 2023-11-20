@@ -9,8 +9,10 @@ Welcome to MetaReForge Docs!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   ./installation_guide.md
-   ./user_manual.md
+   
+   about.md
+   installation_guide.md
+   workflow.md
 
 Indices and tables
 ==================
