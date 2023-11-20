@@ -79,7 +79,7 @@ After clicking on **"Re-Compute Split Normals"**, the following will occur:
 With **Weld Distance** (in centimeters), you can control this process, but the default value is chosen to work in most cases. With a Weld Distance of more than 0.01, you might start to see points welding together that shouldn't be.
 
 **Remember**, excessive Weld Distance can result in unintended merging of points, so it should be used cautiously.
-### **6. Export FBX**
+### 7. Export FBX
 Once all LODs look as desired, it's time to export them for use in Unreal Engine. Based on my experience, I prefer to export LODs separately because this way, you don't have to spend a lot of time configuring Material Slots in Unreal Engine. Following this logic, we have a utility for exporting. You just need to specify the path and click **"Export FBX"**. There's no need to worry about settings, selecting the right objects, etc. Everything will be done for you. As a result, you should see 8 LODs for the head and 4 LODs for the body in the folder, so you can upload these files to Unreal Engine.
 ### 8. Update DNA
 The Metahuman Animation blueprint heavily relies on the DNA file. Therefore, if you want your custom Metahuman to retain the ability to perform realistic facial animations, updating the DNA file is an ESSENTIAL step.
