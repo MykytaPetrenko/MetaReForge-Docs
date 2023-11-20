@@ -1,10 +1,10 @@
-# **Installation Guide**
+# Installation Guide
 
-### **System support**
+### System support
 - Currently, the MetaReForge supported for **Windows only**.
 - We will extend the list of supported systems if there is a demand for it. Our code itself is generally cross-platform, but we have not tested the Add-on on other platforms, so we cannot guarantee that it will work smoothly or even work at all.
 
-### **1. Installing MetaReForge Bledner Add-on**
+### 1. Installing MetaReForge Bledner Add-on
 
 
 The basic installation of the MetaReForge add-on is no different from installing any other Blender Add-on. The following steps need to be taken:
@@ -24,14 +24,14 @@ However, to get full functionality, it is necessary to **link MetaReForge with t
 
 In general, a DNA file determines how controls will transform joints, adjust corrective morph targets, animate texture maps, and more. This makes Metahuman one of the most realistic digital characters, especially in terms of facial animations.
 
-### **2. How to link MetaReForge to Metahuman DNA Calibration**
+### 2. How to link MetaReForge to Metahuman DNA Calibration
 [Metahuman DNA Callibration Library](https://github.com/EpicGames/MetaHuman-DNA-Calibration) does not contain pre-built binaries for most recent blender versions, so you can either download older blender builds (for example [Blender 3.3.7 LTS with python 3.9](https://blender.community/c/graphicall/egnl/)) or build your own binaries for your target system.
 
 **MetaReForge** comes with a usefull build util, that make the process a bit easier for regular user, but it still requires some general knowledge and skills. Thanks for your patience.
 
 In the next two sections I will show you both options
 
-### **2.1. Using Blender with python 3.9**
+### 2.1. Using Blender with python 3.9
 The easiest way to connect the library is to use a version of Blender built on Python 3.9. Yes, we don't get the very latest version with all the new features (but, by the way, DNA-Calibration doesn't have prebuilt binaries for the latest version of Maya at the time of writing this documentation either...), but the installation process takes minimal time.Before installing MetaReForge you need to download:
 
 - Blender with Python 3.9 support (for example [Blender 3.3.7 LTS - Python 3.9 - Windows](https://blender.community/c/graphicall/egnl/) from the blender community builds)
@@ -48,7 +48,7 @@ Step-by-step Installation Instructions
 Enjoy using the add-on. These steps only need to be done once.
 
 
-### **2.2. Building DNA Calibration binaries for different python versions**
+### 2.2. Building DNA Calibration binaries for different python versions
 
 Compiling Metahuman DNA Calibration is not a very complicated process. All that is required from you is the ability to follow instructions and a bit of patience. I tried to describe the process in as much detail as possible and even automate it a bit. Even someone who is not familiar with programming at all can handle it. For those who develop in C++ in Unreal Engine, this step will seem like a walk in the park.
 
@@ -130,12 +130,12 @@ You need to:
 
 When the MetaReForge add-on is installed and activated, we move to the add-on preferences. You should see messages indicating "Library files are missing" and "Library files are NOT LINKED", meaning that the DNA Calibration Library is not connected. Next, you need to go through the compilation settings.
 
-The first important parameter is the path to the **CMake utility**. If you installed CMake with Visual Studio following the instructions in section 2.2, then the path to CMake should be detected automatically. You should also see a checkbox on the left indicating that the executable file has been found.
+The first important parameter is the path to the **CMake utility**. If you installed CMake with Visual Studio following the instructions in section 2.2, then the path to CMake should be detected automatically. You should also see a checkmark on the left indicating that the executable file has been found.
 
-The next step is to set the path to the **Swig utility**. If you have downloaded and unpacked it, then specify the path to the root of this utility. A checkbox should appear on the left.
+The next step is to set the path to the **Swig utility**. If you have downloaded and unpacked it, then specify the path to the root of this utility. A checkmark should appear on the left.
 If you haven't installed it, you can instead specify the path to the directory where you want to download and unpack Swig (for example, “C:/temp/”) and press the download button. After that, the path to Swig will update automatically and will point to the root directory into which the utility was unpacked.
 
-Next, you need to specify the path to the **DNA Calibration Library**. Similarly to Swig, you can either specify the path to a previously downloaded and unpacked library or specify the path where you want to download it and press the download button. This gives us the third checkbox.
+Next, you need to specify the path to the **DNA Calibration Library**. Similarly to Swig, you can either specify the path to a previously downloaded and unpacked library or specify the path where you want to download it and press the download button. This gives us the third checkmark.
 
 Final touches. You need to select the version of Python. By default, at the first launch of the add-on, it will attempt to identify the most suitable version from those installed on the computer. More about choosing the Python version was in [section 2.2.2](#222-installing-python).
 
