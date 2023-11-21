@@ -39,11 +39,18 @@ The easiest way to connect the library is to use a version of Blender built on P
 - [Metahuman-DNA-Calibration 1.2.0 release](https://github.com/EpicGames/MetaHuman-DNA-Calibration/releases/tag/1.2.0)
 
 Step-by-step Installation Instructions
-1. Install compatible Blender with python 3.9 support
+1. Install/unzip compatible Blender with python 3.9 support
 2. Unpack the Metahuman-DNA-Calibration archive.
 3. Install MetaReForge (see [Section 1](#1-installing-metareforge-bledner-add-on))
-4. Expand the add-on settings, specify the path to the Metahuman-DNA-Calibration root directory and click 'copy dnacalib'. The "Files not found" check should change to "Files found".
-5. Restart Blender. Go back to the add-on settings. Two checks should be passed: "library files found", "library files are linked".
+4. Expand the add-on preferences, specify the path to any temporary folder for download (*1*), click download (*2*), click **"Copy Binaries from Maya plugin"** (*3*). The "Library files are missing" check should change to "Librart files are found".
+
+    **Note:** You can directly specify the path to the DNACalibration root skipping (*2*) if you already have it, instead of downloading it.
+<p align="center">
+  <img src="./images/dnacalib_python39_install.png"/>
+</p>
+
+
+5. Restart Blender. Go back to the add-on settings. Two checks should be passed: "library files are found", "library files are linked".
 
 Enjoy using the add-on. These steps only need to be done once.
 
@@ -143,4 +150,6 @@ Next, you need to select the C++ toolset/compiler. By default, it will be set to
 
 Click **"Build DNA-Calibration"**, wait a couple of minutes and it's done. Now the "Library files are missing" should change to "Library files are found". The last thing left to do is to restart Blender and see the message "Library files are linked" instead of "NOT LINKED".
 
-These actions need to be done only once. You can also save the files and directories "<PATH_TO_METAFORGE_ADDON>/third_party/dnacalib/" so that when updating Blender (if the minor Python version has not changed) or reinstalling the operating system, you won't need to repeat these steps; just place the files in the required directory of the add-on.
+These actions need to be done only once. You can also save the files and directories located at `<PATH_TO_METAFORGE_ADDON>/third_party/dnacalib/`. To easily access this location, go to the add-on settings and use **"Reveal In File Explorer"**. This action will open the folder in the file explorer, allowing you to back up the necessary files. When updating Blender or reinstalling the operating system, if the Python version remains compatible, you won't need to repeat these steps; simply place the saved files back in the required directory of the add-on.
+
+**However**, it's important to note that these files can be reused only if the Python version remains compatible. Specifically, the files are compatible if the first two numbers of the Python version (major and minor version numbers) remain the same after the Blender update. This compatibility is crucial for the proper functioning of the add-on with the new version of Blender.
