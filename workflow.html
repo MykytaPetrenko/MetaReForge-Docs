@@ -92,19 +92,31 @@
 <h2>Preliminary Setup<a class="headerlink" href="#preliminary-setup" title="Link to this heading"></a></h2>
 <p>First, we need to prepare the files for editing. You will need:</p>
 <ol class="simple">
-<li><p>The head’s FBX file</p></li>
-</ol>
+<li><p>The head’s FBX file</p>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Content/Metahumans/&lt;METAHUMAN_NAME&gt;/Face/&lt;METAHUMAN_NAME&gt;_FaceMesh</span></code></p></li>
 <li><p>right-click on the corresponding skeletal mesh in the content browser Asset Actions - Export as FBX).</p></li>
 <li><p>Convert FBX with <a class="reference external" href="https://aps.autodesk.com/developer/overview/fbx-converter-archives">Autodesk FBX 2013 Converter</a> (do not ignore this step cause otherwise some data as for example shape keys will be lost!!)</p></li>
 </ul>
-<ol class="simple">
-<li><p>The body’s FBX file (exported in the same way as the head, preferably with a model including all polygons, without any deleted under the clothing).</p></li>
-<li><p>The DNA file. It’s usually found in the Quixel Bridge asset folder (by default, look in C:\Users&lt;USER_NAME&gt;\Documents\Megascans Library).</p></li>
+</li>
 </ol>
-<p align="center">
-  <img src="./images/export_as_fbx.png"/>
-</p></section>
+<a href="./images/export_as_fbx.png">
+  <p align="center">
+    <img src="./images/export_as_fbx.png" width="50%" height="50%"/>
+  </p>
+</a><ol class="simple">
+<li><p>The body’s FBX file exported in the same way as the head, preferably use a body skeletal mesh  that includs all polygons, without any deleted polygons under the clothing.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Content/Metahumans/&lt;METAHUMAN_NAME&gt;/Face/&lt;METAHUMAN_NAME&gt;_FaceMesh</span></code></p></li>
+</ul>
+</li>
+<li><p>The DNA file. It’s usually found in the Quixel Bridge asset folder (by default, look in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USER_NAME&gt;\Documents\Megascans</span> <span class="pre">Library</span></code>).</p></li>
+</ol>
+<a href="./images/get_original_dna.png">
+  <p align="center">
+    <img src="./images/get_original_dna.png" width="50%" height="50%"/>
+  </p>
+</a></section>
 <section id="scene-setup">
 <h2>Scene Setup<a class="headerlink" href="#scene-setup" title="Link to this heading"></a></h2>
 <p>The first thing to do when opening a new scene in Blender is to set the units of measurement (this is necessary to match the units in Unreal Engine). The metric system should be selected with a Unit Scale = 0.01. If the units are not set up, the addon panel will display a <strong>Setup Scene</strong> button, which will configure the units as mentioned earlier.</p>

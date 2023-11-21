@@ -4,15 +4,28 @@ We've designed MetaReForge addon interface to be as clear and structured as poss
 ### Preliminary Setup
 First, we need to prepare the files for editing. You will need:
 
-1. The head's FBX file 
-  - right-click on the corresponding skeletal mesh in the content browser Asset Actions - Export as FBX).
-  - Convert FBX with [Autodesk FBX 2013 Converter](https://aps.autodesk.com/developer/overview/fbx-converter-archives) (do not ignore this step cause otherwise some data as for example shape keys will be lost!!)
-2. The body's FBX file (exported in the same way as the head, preferably with a model including all polygons, without any deleted under the clothing).
-3. The DNA file. It's usually found in the Quixel Bridge asset folder (by default, look in C:\Users<USER_NAME>\Documents\Megascans Library).
+1. The head's FBX file
+    - `Content/Metahumans/<METAHUMAN_NAME>/Face/<METAHUMAN_NAME>_FaceMesh`
+    - right-click on the corresponding skeletal mesh in the content browser Asset Actions - Export as FBX).
+    - Convert FBX with [Autodesk FBX 2013 Converter](https://aps.autodesk.com/developer/overview/fbx-converter-archives) (do not ignore this step cause otherwise some data as for example shape keys will be lost!!)
 
-<p align="center">
-  <img src="./images/export_as_fbx.png"/>
-</p>
+<a href="./images/export_as_fbx.png">
+  <p align="center">
+    <img src="./images/export_as_fbx.png" width="50%" height="50%"/>
+  </p>
+</a>
+
+2. The body's FBX file exported in the same way as the head, preferably use a body skeletal mesh  that includs all polygons, without any deleted polygons under the clothing.
+    - `Content/Metahumans/<METAHUMAN_NAME>/Face/<METAHUMAN_NAME>_FaceMesh`
+    
+3. The DNA file. It's usually found in the Quixel Bridge asset folder (by default, look in `C:\Users\<USER_NAME>\Documents\Megascans Library`).
+
+<a href="./images/get_original_dna.png">
+  <p align="center">
+    <img src="./images/get_original_dna.png" width="50%" height="50%"/>
+  </p>
+</a>
+
 
 ### Scene Setup
 The first thing to do when opening a new scene in Blender is to set the units of measurement (this is necessary to match the units in Unreal Engine). The metric system should be selected with a Unit Scale = 0.01. If the units are not set up, the addon panel will display a **Setup Scene** button, which will configure the units as mentioned earlier.
