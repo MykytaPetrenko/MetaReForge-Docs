@@ -128,12 +128,18 @@
 <li><p><a class="reference external" href="https://github.com/EpicGames/MetaHuman-DNA-Calibration/releases/tag/1.2.0">Metahuman-DNA-Calibration 1.2.0 release</a></p></li>
 </ul>
 <p>Step-by-step Installation Instructions</p>
-<ol class="simple">
-<li><p>Install compatible Blender with python 3.9 support</p></li>
+<ol>
+<li><p>Install/unzip compatible Blender with python 3.9 support</p></li>
 <li><p>Unpack the Metahuman-DNA-Calibration archive.</p></li>
 <li><p>Install MetaReForge (see <a class="reference external" href="#1-installing-metareforge-bledner-add-on">Section 1</a>)</p></li>
-<li><p>Expand the add-on settings, specify the path to the Metahuman-DNA-Calibration root directory and click ‘copy dnacalib’. The “Files not found” check should change to “Files found”.</p></li>
-<li><p>Restart Blender. Go back to the add-on settings. Two checks should be passed: “library files found”, “library files are linked”.</p></li>
+<li><p>Expand the add-on preferences, specify the path to any temporary folder for download (<em>1</em>), click download (<em>2</em>), click <strong>“Copy Binaries from Maya plugin”</strong> (<em>3</em>). The “Library files are missing” check should change to “Librart files are found”.</p>
+<p><strong>Note:</strong> You can directly specify the path to the DNACalibration root skipping (<em>2</em>) if you already have it, instead of downloading it.</p>
+</li>
+</ol>
+<p align="center">
+  <img src="./images/dnacalib_python39_install.png"/>
+</p><ol class="simple">
+<li><p>Restart Blender. Go back to the add-on settings. Two checks should be passed: “library files are found”, “library files are linked”.</p></li>
 </ol>
 <p>Enjoy using the add-on. These steps only need to be done once.</p>
 </section>
@@ -217,7 +223,8 @@ If you haven’t installed it, you can instead specify the path to the directory
 <p>Final touches. You need to select the version of Python. By default, at the first launch of the add-on, it will attempt to identify the most suitable version from those installed on the computer. More about choosing the Python version was in <a class="reference external" href="#222-installing-python">section 2.2.2</a>.</p>
 <p>Next, you need to select the C++ toolset/compiler. By default, it will be set to v143 with which everything should work, but optionally you can use v142 if you additionally installed it in Visual Studio. More about choosing the version of the toolset was in <a class="reference external" href="#223-installing-cc-compiler">section 2.2.3</a>.</p>
 <p>Click <strong>“Build DNA-Calibration”</strong>, wait a couple of minutes and it’s done. Now the “Library files are missing” should change to “Library files are found”. The last thing left to do is to restart Blender and see the message “Library files are linked” instead of “NOT LINKED”.</p>
-<p>These actions need to be done only once. You can also save the files and directories “&lt;PATH_TO_METAFORGE_ADDON&gt;/third_party/dnacalib/” so that when updating Blender (if the minor Python version has not changed) or reinstalling the operating system, you won’t need to repeat these steps; just place the files in the required directory of the add-on.</p>
+<p>These actions need to be done only once. You can also save the files and directories located at <code class="docutils literal notranslate"><span class="pre">&lt;PATH_TO_METAFORGE_ADDON&gt;/third_party/dnacalib/</span></code>. To easily access this location, go to the add-on settings and use <strong>“Reveal In File Explorer”</strong>. This action will open the folder in the file explorer, allowing you to back up the necessary files. When updating Blender or reinstalling the operating system, if the Python version remains compatible, you won’t need to repeat these steps; simply place the saved files back in the required directory of the add-on.</p>
+<p><strong>However</strong>, it’s important to note that these files can be reused only if the Python version remains compatible. Specifically, the files are compatible if the first two numbers of the Python version (major and minor version numbers) remain the same after the Blender update. This compatibility is crucial for the proper functioning of the add-on with the new version of Blender.</p>
 </section>
 </section>
 </section>
