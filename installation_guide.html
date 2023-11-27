@@ -48,6 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#system-support">System support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#important-note">Important note</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installing-metareforge-bledner-add-on">1. Installing MetaReForge Bledner Add-on</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-link-metareforge-to-metahuman-dna-calibration">2. How to link MetaReForge to Metahuman DNA Calibration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-blender-with-python-3-9">2.1. Using Blender with python 3.9</a></li>
@@ -93,9 +94,13 @@
 <section id="system-support">
 <h2>System support<a class="headerlink" href="#system-support" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Currently, the MetaReForge supported for <strong>Windows only</strong>.</p></li>
-<li><p>We will extend the list of supported systems if there is a demand for it. Our code itself is generally cross-platform, but we have not tested the Add-on on other platforms, so we cannot guarantee that it will work smoothly or even work at all.</p></li>
+<li><p>Currently, the MetaReForge supported for <strong>Windows only</strong>. We will extend the list of supported systems if there is a demand for it. Our code itself is generally cross-platform, but we have not tested the Add-on on other platforms, so we cannot guarantee that it will work smoothly or even work at all.</p></li>
+<li><p>Blender 4.0 is not fully supported. It works, but some actions take extremely long (’Synchronize’ takes ~10 minutes in Blender 4.0 vs 10-15 seconds in Blender 3.6)</p></li>
 </ul>
+</section>
+<section id="important-note">
+<h2>Important note<a class="headerlink" href="#important-note" title="Link to this heading"></a></h2>
+<p><strong>Run Blender with administrator privileges when you install the add-on and build the library!</strong></p>
 </section>
 <section id="installing-metareforge-bledner-add-on">
 <h2>1. Installing MetaReForge Bledner Add-on<a class="headerlink" href="#installing-metareforge-bledner-add-on" title="Link to this heading"></a></h2>
@@ -121,6 +126,7 @@
 </section>
 <section id="using-blender-with-python-3-9">
 <h2>2.1. Using Blender with python 3.9<a class="headerlink" href="#using-blender-with-python-3-9" title="Link to this heading"></a></h2>
+<p><strong><a class="reference external" href="https://youtu.be/fMJvKigpV9s">See on YouTube</a></strong></p>
 <p>The easiest way to connect the library is to use a version of Blender built on Python 3.9. Yes, we don’t get the very latest version with all the new features (but, by the way, DNA-Calibration doesn’t have prebuilt binaries for the latest version of Maya at the time of writing this documentation either…), but the installation process takes minimal time.Before installing MetaReForge you need to download:</p>
 <ul class="simple">
 <li><p>Blender with Python 3.9 support (for example <a class="reference external" href="https://blender.community/c/graphicall/egnl/">Blender 3.3.7 LTS - Python 3.9 - Windows</a> from the blender community builds)</p></li>
@@ -145,6 +151,7 @@
 </section>
 <section id="building-dna-calibration-binaries-for-different-python-versions">
 <h2>2.2. Building DNA Calibration binaries for different python versions<a class="headerlink" href="#building-dna-calibration-binaries-for-different-python-versions" title="Link to this heading"></a></h2>
+<p><strong><a class="reference external" href="https://youtu.be/1A_jdwr05kI">See on YouTube</a></strong></p>
 <p>Compiling Metahuman DNA Calibration is not a very complicated process. All that is required from you is the ability to follow instructions and a bit of patience. I tried to describe the process in as much detail as possible and even automate it a bit. Even someone who is not familiar with programming at all can handle it. For those who develop in C++ in Unreal Engine, this step will seem like a walk in the park.</p>
 <p>The advantage of this approach is that by spending just 10 minutes of your time, you will be using the Add-on with the latest version of Blender and all its new features.</p>
 <section id="preparation">

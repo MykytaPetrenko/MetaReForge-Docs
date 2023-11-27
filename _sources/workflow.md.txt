@@ -1,5 +1,6 @@
 # Workflow
 We've designed MetaReForge addon interface to be as clear and structured as possible.  All features are organized into blocks within the N-panel under the 'MRF' category. The majority of these features are accessible in object mode, while additional utilities for armature editing become available in armature edit mode.
+Check out out [workflow tutorial](https://youtu.be/32PLLmDs9wE) on youtube
 
 ### Preliminary Setup
 First, we need to prepare the files for editing. You will need:
@@ -16,9 +17,11 @@ First, we need to prepare the files for editing. You will need:
 </a>
 
 2. The body's FBX file exported in the same way as the head, preferably use a body skeletal mesh  that includs all polygons, without any deleted polygons under the clothing.
-    - `Content/Metahumans/<METAHUMAN_NAME>/Face/<METAHUMAN_NAME>_FaceMesh`
+    - `Content/Metahumans/<NAME>/<SEX>/<HEIGHT>/<WEIGHT>/Body/<BODY_SKELETAL_MESH>`
     
-3. The DNA file. It's usually found in the Quixel Bridge asset folder (by default, look in `C:\Users\<USER_NAME>\Documents\Megascans Library`).
+3. The DNA file. It's usually found in the Quixel Bridge asset folder (by default, look in 
+
+    - `C:\Users\<USER_NAME>\Documents\Megascans Library\Downloaded\UAssets\<ASSET_ID>\Tier0\asset_ue\MetaHumans\<METAHUMAN_NAME>\SourceAssets`).
 
 <a href="./images/get_original_dna.png">
   <p align="center">
@@ -96,7 +99,7 @@ With **Weld Distance** (in centimeters), you can control this process, but the d
 Once all LODs look as desired, it's time to export them for use in Unreal Engine. Based on my experience, I prefer to export LODs separately because this way, you don't have to spend a lot of time configuring Material Slots in Unreal Engine. Following this logic, we have a utility for exporting. You just need to specify the path and click **"Export FBX"**. There's no need to worry about settings, selecting the right objects, etc. Everything will be done for you. As a result, you should see 8 LODs for the head and 4 LODs for the body in the folder, so you can upload these files to Unreal Engine.
 ### 8. Update DNA
 The Metahuman Animation blueprint heavily relies on the DNA file. Therefore, if you want your custom Metahuman to retain the ability to perform realistic facial animations, updating the DNA file is an ESSENTIAL step.
-Note: If you don't see the necessary functionality in the **"DNA Update"** block, check the Installation Guide. For troubleshooting, refer to our Discord channel.
+Note: If you don't see the necessary functionality in the **"DNA Update"** block, check the Installation Guide.
 
 All you need to do is:
 
@@ -104,3 +107,5 @@ All you need to do is:
 - Specify the path for saving the updated file.
 - Click **"Armature to DNA"**. MetaReForge will record the actual positions of the bones from Blender into the DNA file (Neutral Joint Translations and Rotations, following Epic Games' terminology).
 - To assign the updated DNA file to a Metahuman in Unreal Engine, you need to drag and drop it into the Content Browser and select the relevant Skeletal Mesh.
+
+For troubleshooting, check out to our [Discord Server](https://discord.gg/qYtEq2ukDX).
