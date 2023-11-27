@@ -1,8 +1,11 @@
 # Installation Guide
 
 ### System support
-- Currently, the MetaReForge supported for **Windows only**.
-- We will extend the list of supported systems if there is a demand for it. Our code itself is generally cross-platform, but we have not tested the Add-on on other platforms, so we cannot guarantee that it will work smoothly or even work at all.
+- Currently, the MetaReForge supported for **Windows only**. We will extend the list of supported systems if there is a demand for it. Our code itself is generally cross-platform, but we have not tested the Add-on on other platforms, so we cannot guarantee that it will work smoothly or even work at all.
+- Blender 4.0 is not fully supported. It works, but some actions take extremely long ('Synchronize' takes ~10 minutes in Blender 4.0 vs 10-15 seconds in Blender 3.6)
+
+### Important note
+**Run Blender with administrator privileges when you install the add-on and build the library!**
 
 ### 1. Installing MetaReForge Bledner Add-on
 
@@ -32,6 +35,8 @@ In general, a DNA file determines how controls will transform joints, adjust cor
 In the next two sections I will show you both options
 
 ### 2.1. Using Blender with python 3.9
+**[See on YouTube](https://youtu.be/fMJvKigpV9s)**
+
 The easiest way to connect the library is to use a version of Blender built on Python 3.9. Yes, we don't get the very latest version with all the new features (but, by the way, DNA-Calibration doesn't have prebuilt binaries for the latest version of Maya at the time of writing this documentation either...), but the installation process takes minimal time.Before installing MetaReForge you need to download:
 
 - Blender with Python 3.9 support (for example [Blender 3.3.7 LTS - Python 3.9 - Windows](https://blender.community/c/graphicall/egnl/) from the blender community builds)
@@ -56,6 +61,7 @@ Enjoy using the add-on. These steps only need to be done once.
 
 
 ### 2.2. Building DNA Calibration binaries for different python versions
+**[See on YouTube](https://youtu.be/1A_jdwr05kI)**
 
 Compiling Metahuman DNA Calibration is not a very complicated process. All that is required from you is the ability to follow instructions and a bit of patience. I tried to describe the process in as much detail as possible and even automate it a bit. Even someone who is not familiar with programming at all can handle it. For those who develop in C++ in Unreal Engine, this step will seem like a walk in the park.
 
@@ -153,3 +159,5 @@ Click **"Build DNA-Calibration"**, wait a couple of minutes and it's done. Now t
 These actions need to be done only once. You can also save the files and directories located at `<PATH_TO_METAFORGE_ADDON>/third_party/dnacalib/`. To easily access this location, go to the add-on settings and use **"Reveal In File Explorer"**. This action will open the folder in the file explorer, allowing you to back up the necessary files. When updating Blender or reinstalling the operating system, if the Python version remains compatible, you won't need to repeat these steps; simply place the saved files back in the required directory of the add-on.
 
 **However**, it's important to note that these files can be reused only if the Python version remains compatible. Specifically, the files are compatible if the first two numbers of the Python version (major and minor version numbers) remain the same after the Blender update. This compatibility is crucial for the proper functioning of the add-on with the new version of Blender.
+
+
