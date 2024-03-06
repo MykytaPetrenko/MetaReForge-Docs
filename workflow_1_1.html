@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workflow (1.1-beta) &mdash; MetaReForge Docs 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Workflow (1.0)" href="workflow_1_0.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MetaReForge Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation_guide.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_1_0.html">Workflow (1.0)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Workflow (1.1-beta)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preliminary-setup">Preliminary Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scene-setup">Scene Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import">1. Import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-edit-meshes-edit-armature-and-other-auxiliary-objects">2. Creating Edit Meshes, Edit Armature, and Other Auxiliary Objects</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MetaReForge Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Workflow (1.1-beta)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/workflow_1_1.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="workflow-1-1-beta">
+<h1>Workflow (1.1-beta)<a class="headerlink" href="#workflow-1-1-beta" title="Link to this heading"></a></h1>
+<p><strong>Currently, the documentation is under development.</strong></p>
+<p>In update 1.1, metareforge has undergone a significant number of changes, therefore familiarizing yourself with this documentation is recommended even if you have confidently used version 1.0. Overall, we have tried to adhere to the same principles as in the development of version 1.0.
+We’ve designed MetaReForge addon interface to be as clear and structured as possible. All features are organized into blocks within the N-panel under the ‘MRF’ category. The majority of these features are accessible in object mode, while additional utilities for armature editing become available in armature and mesh edit modes.</p>
+<section id="preliminary-setup">
+<h2>Preliminary Setup<a class="headerlink" href="#preliminary-setup" title="Link to this heading"></a></h2>
+<p>First, we need to prepare the files for editing. You will need:</p>
+<ol class="simple">
+<li><p>The body’s FBX file. It is prefered to use a body skeletal mesh that includs all polygons, without any deleted polygons under the clothing.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Content/Metahumans/&lt;NAME&gt;/&lt;SEX&gt;/&lt;HEIGHT&gt;/&lt;WEIGHT&gt;/Body/&lt;BODY_SKELETAL_MESH&gt;</span></code></p></li>
+<li><p>right-click on the corresponding skeletal mesh in the content browser Asset Actions - Export as FBX).</p></li>
+</ul>
+</li>
+</ol>
+<a href="./images/export_as_fbx.png">
+  <p align="center">
+    <img src="./images/export_as_fbx.png" width="50%" height="50%"/>
+  </p>
+</a><ol class="simple">
+<li><p>The DNA file. It’s usually found in the Quixel Bridge asset folder. By default, look in</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USER_NAME&gt;\Documents\Megascans</span> <span class="pre">Library\Downloaded\UAssets\&lt;ASSET_ID&gt;\Tier0\asset_ue\MetaHumans\&lt;METAHUMAN_NAME&gt;\SourceAssets</span></code>).</p></li>
+</ul>
+</li>
+</ol>
+<a href="./images/get_original_dna.png">
+  <p align="center">
+    <img src="./images/get_original_dna.png" width="50%" height="50%"/>
+  </p>
+</a><ol class="simple">
+<li><p>Optionaly you may use the head from FBX file. <strong>It is not recommended, but useful in certain cases listed in the <a class="reference external" href="#1-import">Import</a> section</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Content/Metahumans/&lt;METAHUMAN_NAME&gt;/Face/&lt;METAHUMAN_NAME&gt;_FaceMesh</span></code></p></li>
+<li><p>right-click on the corresponding skeletal mesh in the content browser Asset Actions - Export as FBX).</p></li>
+<li><p>Convert FBX with <a class="reference external" href="https://aps.autodesk.com/developer/overview/fbx-converter-archives">Autodesk FBX 2013 Converter</a>. Do not ignore this step because otherwise, some data, such as shape keys, will be lost! The converter is not supported on Windows 11.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="scene-setup">
+<h2>Scene Setup<a class="headerlink" href="#scene-setup" title="Link to this heading"></a></h2>
+<p>The first thing to do when opening a new scene in Blender is to set the units of measurement (this is necessary to match the units in Unreal Engine). The metric system should be selected with a Unit Scale = 0.01. If the units are not set up, the addon panel will display a <strong>Setup Scene</strong> button, which will configure the units as mentioned earlier.</p>
+</section>
+<section id="import">
+<h2>1. Import<a class="headerlink" href="#import" title="Link to this heading"></a></h2>
+<p>To import files, use the <strong>“Import”</strong> block on the N-panel of the addon (Object mode). Specify the path to the DNA file and the body FBX file. and click <strong>“Import”</strong>. The head mesh will be built from the DNA file.
+If you want to import the head from FBX file you may untick “Build Head from DNA” and select head FBX file.
+Importing the head FBX files is recommended only in a few situations:</p>
+<ul class="simple">
+<li><p>you are going to utilize your old edit meshes from Metareforge 1.0.X</p></li>
+<li><p>you are going to edit a metahuman that has already been edited after importing it from Quixel Bridge.</p></li>
+</ul>
+<p>For all other cases, the “Build Head from DNA” option is preferred.</p>
+<p><strong>Note.</strong> It’s not recommended to import FBX files in any other way. The addon removes unnecessary elements, analyzes LODs, and assigns them to the corresponding internal properties (which can be viewed by expanding the “Head Objects” and “Body Objects” drop-down lists).</p>
+</section>
+<section id="creating-edit-meshes-edit-armature-and-other-auxiliary-objects">
+<h2>2. Creating Edit Meshes, Edit Armature, and Other Auxiliary Objects<a class="headerlink" href="#creating-edit-meshes-edit-armature-and-other-auxiliary-objects" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="workflow_1_0.html" class="btn btn-neutral float-left" title="Workflow (1.0)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Sqeezy Pixels (Mykyta Petrenko).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -12,4 +12,5 @@ Welcome to MetaReForge Docs!
    
    about.md
    installation_guide.md
-   workflow.md
+   workflow_1_0.md
+   workflow_1_1.md
