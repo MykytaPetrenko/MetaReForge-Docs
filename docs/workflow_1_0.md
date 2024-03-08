@@ -6,28 +6,27 @@ Check out out [workflow tutorial](https://youtu.be/32PLLmDs9wE) on youtube
 First, we need to prepare the files for editing. You will need:
 
 1. The head's FBX file
-    - `Content/Metahumans/<METAHUMAN_NAME>/Face/<METAHUMAN_NAME>_FaceMesh`
-    - right-click on the corresponding skeletal mesh in the content browser Asset Actions - Export as FBX).
-    - Convert FBX with [Autodesk FBX 2013 Converter](https://aps.autodesk.com/developer/overview/fbx-converter-archives) (do not ignore this step cause otherwise some data as for example shape keys will be lost!!)
+   - `Content/Metahumans/<METAHUMAN_NAME>/Face/<METAHUMAN_NAME>_FaceMesh`
+   - right-click on the corresponding skeletal mesh in the content browser Asset Actions - Export as FBX).
+   - Convert FBX with [Autodesk FBX 2013 Converter](https://aps.autodesk.com/developer/overview/fbx-converter-archives) (do not ignore this step cause otherwise some data as for example shape keys will be lost!!)
 
-<a href="./images/export_as_fbx.png">
-  <p align="center">
-    <img src="./images/export_as_fbx.png" width="50%" height="50%"/>
-  </p>
-</a>
+   <a href="./images/export_as_fbx.png">
+      <p align="center">
+         <img src="./images/export_as_fbx.png" width="50%" height="50%"/>
+      </p>
+   </a>
 
 2. The body's FBX file exported in the same way as the head, preferably use a body skeletal mesh  that includs all polygons, without any deleted polygons under the clothing.
-    - `Content/Metahumans/<NAME>/<SEX>/<HEIGHT>/<WEIGHT>/Body/<BODY_SKELETAL_MESH>`
-    
-3. The DNA file. It's usually found in the Quixel Bridge asset folder. By default, look in 
+   - `Content/Metahumans/<NAME>/<SEX>/<HEIGHT>/<WEIGHT>/Body/<BODY_SKELETAL_MESH>`
 
-    - `C:\Users\<USER_NAME>\Documents\Megascans Library\Downloaded\UAssets\<ASSET_ID>\Tier0\asset_ue\MetaHumans\<METAHUMAN_NAME>\SourceAssets`).
+3. The DNA file. It's usually found in the Quixel Bridge asset folder. By default, look in
+   - `C:\Users\<USER_NAME>\Documents\Megascans Library\Downloaded\UAssets\<ASSET_ID>\Tier0\asset_ue\MetaHumans\<METAHUMAN_NAME>\SourceAssets`).
 
-<a href="./images/get_original_dna.png">
-  <p align="center">
-    <img src="./images/get_original_dna.png" width="50%" height="50%"/>
-  </p>
-</a>
+   <a href="./images/get_original_dna.png">
+      <p align="center">
+         <img src="./images/get_original_dna.png" width="50%" height="50%"/>
+      </p>
+   </a>
 
 
 ### Scene Setup
