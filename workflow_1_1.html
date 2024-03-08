@@ -55,7 +55,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#import">1. Import</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-edit-meshes-edit-armature-and-other-auxiliary-objects">2. Creating Edit Meshes, Edit Armature, and Other Auxiliary Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#switch-between-object-groups">3. Switch Between Object Groups</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#editing-the-mesh">3. Editing the Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-the-mesh">4. Editing the Mesh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#editing-the-main-objects-skin-teeth-eyes">4.1. Editing the main objects (skin, teeth, eyes)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-transfer-defromation-from-one-edit-object-to-another-eyeshels-eyelashes-etc">4.2. How to transfer defromation from one edit object to another (eyeshels, eyelashes etc.)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -151,7 +155,7 @@ Importing the head FBX files is recommended only in a few situations:</p>
 </ul>
 <a href="./images/initialized.png">
   <p align="center">
-    <img src="./images/initialized.png" width="40%" height="40%"/>
+    <img src="./images/initialized.png" width="35%" height="35%"/>
   </p>
 </a><p>To ensure clarity, let’s review the terminology used in the addon:</p>
 <ul class="simple">
@@ -172,27 +176,52 @@ Importing the head FBX files is recommended only in a few situations:</p>
 <p>Use the <strong>“View”</strong> block at the top of the menu to switch between LODs and editable objects.
 <a href="./images/view.png"></p>
   <p align="center">
-    <img src="./images/view.png" width="40%" height="40%"/>
+    <img src="./images/view.png" width="35%" height="35%"/>
   </p>
 </a></section>
 <section id="editing-the-mesh">
-<h2>3. Editing the Mesh<a class="headerlink" href="#editing-the-mesh" title="Link to this heading"></a></h2>
+<h2>4. Editing the Mesh<a class="headerlink" href="#editing-the-mesh" title="Link to this heading"></a></h2>
 <p>Once the auxiliary objects are initialized, you can start editing the mesh. Blender offers a wide range of editing capabilities, but if you need more, you can export the Final Mesh and edit it in an external editor.</p>
 <p><strong>It’s crucial to remember:</strong></p>
 <ul class="simple">
 <li><p>The topology and vertex indexing must remain UNCHANGED.</p></li>
 <li><p>Always disable symmetry when working in Edit Mode. At first glance, it may seem that it does not work anyway, but in reality, it sometimes snaps individual points, which can result in unwanted cavities or spikes.</p></li>
 </ul>
-<p>Even considering that there are now many different objects, this does not mean that each one needs to be manually edited. We can recommend the following course of action:</p>
+<p>Even considering that there are now many different objects, this does not mean that each one needs to be manually edited.</p>
+<section id="editing-the-main-objects-skin-teeth-eyes">
+<h3>4.1. Editing the main objects (skin, teeth, eyes)<a class="headerlink" href="#editing-the-main-objects-skin-teeth-eyes" title="Link to this heading"></a></h3>
+<p>We can recommend the following course of action:</p>
 <ul class="simple">
 <li><p>Position the eyes and the teeth meshes according to your sketch or simply where you, as an artist, see them fitting.</p></li>
 <li><p>If you have moved the objects in Object Mode, don’t forget to apply the transformations (<code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">A</span> <span class="pre">-&gt;</span> <span class="pre">All</span> <span class="pre">Transforms</span></code>).
 Next, in Sculpt Mode (enable x symmetry if you need), you can work on the skin model. I prefer to start with the Grab and Elastic Deform brushes at the initial stage. I recommend starting with sculpting because only then can you properly use symmetry. In Edit Mode, symmetry does not work as expected due to the fact that Metahuman has asymmetry.</p></li>
 <li><p>By combining Edit Mode and Sculpt Mode, you can add more details.</p></li>
-<li><p>Transfer changes from skin and teeth to the other objects.</p></li>
 </ul>
+<p>Then you need to transfer changes from skin and teeth to the other objects.</p>
+</section>
+<section id="how-to-transfer-defromation-from-one-edit-object-to-another-eyeshels-eyelashes-etc">
+<h3>4.2. How to transfer defromation from one edit object to another (eyeshels, eyelashes etc.)<a class="headerlink" href="#how-to-transfer-defromation-from-one-edit-object-to-another-eyeshels-eyelashes-etc" title="Link to this heading"></a></h3>
+<p>To transfer deformations, you need</p>
+<ol class="simple">
+<li><p>to select the necessary item from the list <strong>(action 1)</strong> to which you want to transfer the deformations.</p></li>
+<li><p>Next, you need to set up the transfer. You can specify the basis and final objects manually or, as shown in the figure: enter the edit_id of the mesh from which the deformations will be transferred <strong>(action 2)</strong> and press the arrow button <strong>(action 3)</strong>. If everything is specified correctly, then the basis and final objects should be determined automatically.</p></li>
+<li><p>By default, the surface deform modifier will be used to transfer changes (in short, the vertices of the mesh will be attached to the closest polygons of the source mesh. <a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/surface_deform.html">Learn more</a>). In some cases, it may not work as well as desired, for example, it may warp or significantly stretch the shape of the original objects, so an option with enabling the Laplacian deform has been added (in brief, this modifier keeps the anchor vertices in fixed positions and calculates the optimal locations of all the remaining vertices to preserve the original geometric details. <a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/laplacian_deform.html">Learn more</a>). In this case, points that are close (closer than “Lapl. Thresh.”) to the mesh from which the transformations are transferred will be transferred using surface deform (attached to the surface), and points that are further will be reconstructed using Laplacian deform. <strong>For example</strong>, when transferring deformations from the main body mesh to the eyelashes, the roots of the eyelashes will be attached to the nearest polygons on the eyelids, while the rest of the eyelash will not be directly attached to the body but will try to preserve the original shape of the eyelash as much as possible taking into account the new location of the eyelash root.</p></li>
+<li><p>Revise the changes after the transfer and fix minor problems.</p></li>
+</ol>
+<a href="./images/transfer_edit_shape.png">
+  <p align="center">
+    <img src="./images/transfer_edit_shape.png" width="35%" height="35%"/>
+  </p>
+</a><p>Despite the lengthy description, the process is simpler than it seems. <strong>The skin, teeth, and eyes are edited manually based on your artistic needs.</strong> The deformation is transferred to the other objects. For simplicity, we have compiled the following recommendations to help you quickly get oriented:</p>
+<ol class="simple">
+<li><p><strong>Saliva</strong> - Transfer the deformation from “teeth” without Laplacian deform.</p></li>
+<li><p><strong>Eyeshell</strong> - Transfer the deformation from “skin” with Laplacian Deform enabled (thresh &gt;= 0.01).</p></li>
+<li><p><strong>Eyelashes</strong> - Transfer the deformation from “skin” with Laplacian Deform enabled (thresh &gt;= 0.1).</p></li>
+<li><p><strong>Eye Edge, Cartilage</strong> - Transfer the deformation from “skin” with Laplacian Deform disabled.</p></li>
+</ol>
 <p><strong>Editing in third party application:</strong>
 If you wish to modify any part of the body in an external application, you will need to export the necessary Final Mesh and then, after editing, import it back into Blender and assign it in the ‘Final’ field for the corresponding body part. It’s important to ensure that the vertex order remains unchanged.</p>
+</section>
 </section>
 </section>
 
