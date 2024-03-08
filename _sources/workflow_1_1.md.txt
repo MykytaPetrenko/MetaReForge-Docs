@@ -2,7 +2,7 @@
 
 **Currently, the documentation is under development.**
 
-In update 1.1, metareforge has undergone a significant number of changes, therefore familiarizing yourself with this documentation is recommended even if you have confidently used version 1.0. Overall, we have tried to adhere to the same principles as in the development of version 1.0.
+In update 1.1, MetaReForge has undergone a significant number of changes, therefore familiarizing yourself with this documentation is recommended even if you have confidently used version 1.0. Overall, we have tried to adhere to the same principles as in the development of version 1.0.
 We've designed MetaReForge addon interface to be as clear and structured as possible. All features are organized into blocks within the N-panel under the 'MRF' category. The majority of these features are accessible in object mode, while additional utilities for armature editing become available in armature and mesh edit modes.
 
 ### Preliminary Setup
@@ -11,15 +11,13 @@ First, we need to prepare the files for editing. You will need:
 1. The body's FBX file. It is prefered to use a body skeletal mesh that includs all polygons, without any deleted polygons under the clothing.
     - `Content/Metahumans/<NAME>/<SEX>/<HEIGHT>/<WEIGHT>/Body/<BODY_SKELETAL_MESH>`
     - right-click on the corresponding skeletal mesh in the content browser Asset Actions - Export as FBX).
-
 <a href="./images/export_as_fbx.png">
   <p align="center">
     <img src="./images/export_as_fbx.png" width="50%" height="50%"/>
   </p>
-</a>
-    
+</a>  
+ 
 2. The DNA file. It's usually found in the Quixel Bridge asset folder. By default, look in 
-
     - `C:\Users\<USER_NAME>\Documents\Megascans Library\Downloaded\UAssets\<ASSET_ID>\Tier0\asset_ue\MetaHumans\<METAHUMAN_NAME>\SourceAssets`).
 
 <a href="./images/get_original_dna.png">
@@ -105,10 +103,11 @@ Then you need to transfer changes from skin and teeth to the other objects.
 
 #### 4.2. How to transfer defromation from one edit object to another (eyeshels, eyelashes etc.)
 To transfer deformations, you need 
-1. to select the necessary item from the list **(action 1)** to which you want to transfer the deformations. 
-2. Next, you need to set up the transfer. You can specify the basis and final objects manually or, as shown in the figure: enter the edit_id of the mesh from which the deformations will be transferred **(action 2)** and press the arrow button **(action 3)**. If everything is specified correctly, then the basis and final objects should be determined automatically.
-3. By default, the surface deform modifier will be used to transfer changes (in short, the vertices of the mesh will be attached to the closest polygons of the source mesh. [Learn more](https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/surface_deform.html)). In some cases, it may not work as well as desired, for example, it may warp or significantly stretch the shape of the original objects, so an option with enabling the Laplacian deform has been added (in brief, this modifier keeps the anchor vertices in fixed positions and calculates the optimal locations of all the remaining vertices to preserve the original geometric details. [Learn more](https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/laplacian_deform.html)). In this case, points that are close (closer than "Lapl. Thresh.") to the mesh from which the transformations are transferred will be transferred using surface deform (attached to the surface), and points that are further will be reconstructed using Laplacian deform. **For example**, when transferring deformations from the main body mesh to the eyelashes, the roots of the eyelashes will be attached to the nearest polygons on the eyelids, while the rest of the eyelash will not be directly attached to the body but will try to preserve the original shape of the eyelash as much as possible taking into account the new location of the eyelash root.
-4. Revise the changes after the transfer and fix minor problems.
+1. to select the necessary item from the list (_**action 1**_) to which you want to transfer the deformations. 
+2. Next, you need to set up the transfer. You can specify the basis and final objects manually or, as shown in the figure: enter the edit_id of the mesh from which the deformations will be transferred (_**action 2**_) and press the arrow button (_**action 3**_). If everything is specified correctly, then the basis and final objects should be determined automatically.
+3. By default, the surface deform modifier will be used to transfer changes (in short, the vertices of the mesh will be attached to the closest polygons of the source mesh. [Learn more](https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/surface_deform.html)). In some cases, it may not work as well as desired, for example, it may warp or significantly stretch the shape of the original objects, so an option with enabling the Laplacian deform (_**action 4**_) has been added (in brief, this modifier keeps the anchor vertices in fixed positions and calculates the optimal locations of all the remaining vertices to preserve the original geometric details. [Learn more](https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/laplacian_deform.html)). In this case, points that are close (closer than "Lapl. Thresh.", _**action 5**_) to the mesh from which the transformations are transferred will be transferred using surface deform (attached to the surface), and points that are further will be reconstructed using Laplacian deform. **For example**, when transferring deformations from the main body mesh to the eyelashes, the roots of the eyelashes will be attached to the nearest polygons on the eyelids, while the rest of the eyelash will not be directly attached to the body but will try to preserve the original shape of the eyelash as much as possible taking into account the new location of the eyelash root.
+4. Click transfer (_**action 6**_)
+5. Revise the changes after the transfer and fix minor problems.
 <a href="./images/transfer_edit_shape.png">
   <p align="center">
     <img src="./images/transfer_edit_shape.png" width="35%" height="35%"/>
@@ -118,11 +117,16 @@ To transfer deformations, you need
 
 Despite the lengthy description, the process is simpler than it seems. **The skin, teeth, and eyes are edited manually based on your artistic needs.** The deformation is transferred to the other objects. For simplicity, we have compiled the following recommendations to help you quickly get oriented:
 
-1. **Saliva** - Transfer the deformation from "teeth" without Laplacian deform.
+1. **Saliva** - Transfer the deformation from "teeth" with disabled Laplacian deform.
 2. **Eyeshell** - Transfer the deformation from "skin" with Laplacian Deform enabled (thresh >= 0.01).
 3. **Eyelashes** - Transfer the deformation from "skin" with Laplacian Deform enabled (thresh >= 0.1).
 4. **Eye Edge, Cartilage** - Transfer the deformation from "skin" with Laplacian Deform disabled.
 
-**Editing in third party application:**
+### 4.3. Editing in third party application:
 If you wish to modify any part of the body in an external application, you will need to export the necessary Final Mesh and then, after editing, import it back into Blender and assign it in the 'Final' field for the corresponding body part. It's important to ensure that the vertex order remains unchanged.
 
+### 5. Editing the Armature
+After achieving the desired mesh shape, it's necessary to adjust the skeleton to these changes. The Metahuman skeleton contains about a thousand bones, and editing it manually is tedious and time-consuming. Therefore, our addon includes tools to simplify this routine by transferring the deformation from the final mesh to the skeleton.
+
+To start editing the skeleton, you need to select it and switch to edit mode. If everything is done correctly, you will see the necessary tools in the MRF section on the N-panel.
+All tools transfer the deformation of the final mesh only to the selected bones, allowing for better control of the process.

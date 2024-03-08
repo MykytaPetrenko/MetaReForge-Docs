@@ -60,6 +60,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#how-to-transfer-defromation-from-one-edit-object-to-another-eyeshels-eyelashes-etc">4.2. How to transfer defromation from one edit object to another (eyeshels, eyelashes etc.)</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-in-third-party-application">4.3. Editing in third party application:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-the-armature">5. Editing the Armature</a></li>
 </ul>
 </li>
 </ul>
@@ -91,7 +93,7 @@
   <section id="workflow-1-1-beta">
 <h1>Workflow (1.1-beta)<a class="headerlink" href="#workflow-1-1-beta" title="Link to this heading"></a></h1>
 <p><strong>Currently, the documentation is under development.</strong></p>
-<p>In update 1.1, metareforge has undergone a significant number of changes, therefore familiarizing yourself with this documentation is recommended even if you have confidently used version 1.0. Overall, we have tried to adhere to the same principles as in the development of version 1.0.
+<p>In update 1.1, MetaReForge has undergone a significant number of changes, therefore familiarizing yourself with this documentation is recommended even if you have confidently used version 1.0. Overall, we have tried to adhere to the same principles as in the development of version 1.0.
 We’ve designed MetaReForge addon interface to be as clear and structured as possible. All features are organized into blocks within the N-panel under the ‘MRF’ category. The majority of these features are accessible in object mode, while additional utilities for armature editing become available in armature and mesh edit modes.</p>
 <section id="preliminary-setup">
 <h2>Preliminary Setup<a class="headerlink" href="#preliminary-setup" title="Link to this heading"></a></h2>
@@ -108,7 +110,7 @@ We’ve designed MetaReForge addon interface to be as clear and structured as po
   <p align="center">
     <img src="./images/export_as_fbx.png" width="50%" height="50%"/>
   </p>
-</a><ol class="simple">
+</a>  <ol class="simple">
 <li><p>The DNA file. It’s usually found in the Quixel Bridge asset folder. By default, look in</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USER_NAME&gt;\Documents\Megascans</span> <span class="pre">Library\Downloaded\UAssets\&lt;ASSET_ID&gt;\Tier0\asset_ue\MetaHumans\&lt;METAHUMAN_NAME&gt;\SourceAssets</span></code>).</p></li>
@@ -203,9 +205,10 @@ Next, in Sculpt Mode (enable x symmetry if you need), you can work on the skin m
 <h3>4.2. How to transfer defromation from one edit object to another (eyeshels, eyelashes etc.)<a class="headerlink" href="#how-to-transfer-defromation-from-one-edit-object-to-another-eyeshels-eyelashes-etc" title="Link to this heading"></a></h3>
 <p>To transfer deformations, you need</p>
 <ol class="simple">
-<li><p>to select the necessary item from the list <strong>(action 1)</strong> to which you want to transfer the deformations.</p></li>
-<li><p>Next, you need to set up the transfer. You can specify the basis and final objects manually or, as shown in the figure: enter the edit_id of the mesh from which the deformations will be transferred <strong>(action 2)</strong> and press the arrow button <strong>(action 3)</strong>. If everything is specified correctly, then the basis and final objects should be determined automatically.</p></li>
-<li><p>By default, the surface deform modifier will be used to transfer changes (in short, the vertices of the mesh will be attached to the closest polygons of the source mesh. <a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/surface_deform.html">Learn more</a>). In some cases, it may not work as well as desired, for example, it may warp or significantly stretch the shape of the original objects, so an option with enabling the Laplacian deform has been added (in brief, this modifier keeps the anchor vertices in fixed positions and calculates the optimal locations of all the remaining vertices to preserve the original geometric details. <a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/laplacian_deform.html">Learn more</a>). In this case, points that are close (closer than “Lapl. Thresh.”) to the mesh from which the transformations are transferred will be transferred using surface deform (attached to the surface), and points that are further will be reconstructed using Laplacian deform. <strong>For example</strong>, when transferring deformations from the main body mesh to the eyelashes, the roots of the eyelashes will be attached to the nearest polygons on the eyelids, while the rest of the eyelash will not be directly attached to the body but will try to preserve the original shape of the eyelash as much as possible taking into account the new location of the eyelash root.</p></li>
+<li><p>to select the necessary item from the list (<em><strong>action 1</strong></em>) to which you want to transfer the deformations.</p></li>
+<li><p>Next, you need to set up the transfer. You can specify the basis and final objects manually or, as shown in the figure: enter the edit_id of the mesh from which the deformations will be transferred (<em><strong>action 2</strong></em>) and press the arrow button (<em><strong>action 3</strong></em>). If everything is specified correctly, then the basis and final objects should be determined automatically.</p></li>
+<li><p>By default, the surface deform modifier will be used to transfer changes (in short, the vertices of the mesh will be attached to the closest polygons of the source mesh. <a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/surface_deform.html">Learn more</a>). In some cases, it may not work as well as desired, for example, it may warp or significantly stretch the shape of the original objects, so an option with enabling the Laplacian deform (<em><strong>action 4</strong></em>) has been added (in brief, this modifier keeps the anchor vertices in fixed positions and calculates the optimal locations of all the remaining vertices to preserve the original geometric details. <a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/laplacian_deform.html">Learn more</a>). In this case, points that are close (closer than “Lapl. Thresh.”, <em><strong>action 5</strong></em>) to the mesh from which the transformations are transferred will be transferred using surface deform (attached to the surface), and points that are further will be reconstructed using Laplacian deform. <strong>For example</strong>, when transferring deformations from the main body mesh to the eyelashes, the roots of the eyelashes will be attached to the nearest polygons on the eyelids, while the rest of the eyelash will not be directly attached to the body but will try to preserve the original shape of the eyelash as much as possible taking into account the new location of the eyelash root.</p></li>
+<li><p>Click transfer (<em><strong>action 6</strong></em>)</p></li>
 <li><p>Revise the changes after the transfer and fix minor problems.</p></li>
 </ol>
 <a href="./images/transfer_edit_shape.png">
@@ -214,14 +217,22 @@ Next, in Sculpt Mode (enable x symmetry if you need), you can work on the skin m
   </p>
 </a><p>Despite the lengthy description, the process is simpler than it seems. <strong>The skin, teeth, and eyes are edited manually based on your artistic needs.</strong> The deformation is transferred to the other objects. For simplicity, we have compiled the following recommendations to help you quickly get oriented:</p>
 <ol class="simple">
-<li><p><strong>Saliva</strong> - Transfer the deformation from “teeth” without Laplacian deform.</p></li>
+<li><p><strong>Saliva</strong> - Transfer the deformation from “teeth” with disabled Laplacian deform.</p></li>
 <li><p><strong>Eyeshell</strong> - Transfer the deformation from “skin” with Laplacian Deform enabled (thresh &gt;= 0.01).</p></li>
 <li><p><strong>Eyelashes</strong> - Transfer the deformation from “skin” with Laplacian Deform enabled (thresh &gt;= 0.1).</p></li>
 <li><p><strong>Eye Edge, Cartilage</strong> - Transfer the deformation from “skin” with Laplacian Deform disabled.</p></li>
 </ol>
-<p><strong>Editing in third party application:</strong>
-If you wish to modify any part of the body in an external application, you will need to export the necessary Final Mesh and then, after editing, import it back into Blender and assign it in the ‘Final’ field for the corresponding body part. It’s important to ensure that the vertex order remains unchanged.</p>
 </section>
+</section>
+<section id="editing-in-third-party-application">
+<h2>4.3. Editing in third party application:<a class="headerlink" href="#editing-in-third-party-application" title="Link to this heading"></a></h2>
+<p>If you wish to modify any part of the body in an external application, you will need to export the necessary Final Mesh and then, after editing, import it back into Blender and assign it in the ‘Final’ field for the corresponding body part. It’s important to ensure that the vertex order remains unchanged.</p>
+</section>
+<section id="editing-the-armature">
+<h2>5. Editing the Armature<a class="headerlink" href="#editing-the-armature" title="Link to this heading"></a></h2>
+<p>After achieving the desired mesh shape, it’s necessary to adjust the skeleton to these changes. The Metahuman skeleton contains about a thousand bones, and editing it manually is tedious and time-consuming. Therefore, our addon includes tools to simplify this routine by transferring the deformation from the final mesh to the skeleton.</p>
+<p>To start editing the skeleton, you need to select it and switch to edit mode. If everything is done correctly, you will see the necessary tools in the MRF section on the N-panel.
+All tools transfer the deformation of the final mesh only to the selected bones, allowing for better control of the process.</p>
 </section>
 </section>
 
