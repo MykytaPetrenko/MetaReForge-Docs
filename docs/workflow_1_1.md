@@ -169,9 +169,40 @@ Metahumans use corrective shape keys only at LOD0.
 </a>
 
 ### 7. Applying Changes to Exportable Objects
+#### 7.1. Synchronization (Transferring Changes to the Exportable Objects)
 When the creative part of the work is completed, it's necessary to transfer all changes to the exportable models. For this, we go to the **"Update Original"** block. By clicking on the **"Synchronize"** button, changes from the Final Mesh (more precisely, the difference between the Final Mesh and the Initial Mesh) will be applied to the individual LODs, and the updated position of the bones will also be applied to the original armature objects.
 
 A few parameters are available for dealing with exceptional cases:
 
 - **Use Noise:** Default is True. It introduces a small amount of noise to the vertex positions at the time of binding. The Surface Deform modifier, which this operator is based on, fails to work if the vertex positions are identical. The noise value is usually extremely small, making its visual impact imperceptible, but it's sufficient for the Surface Deform algorithm to bind successfully.
 - **Min, Max:** The minimum and maximum values of the noise in centimeters. These should only be increased if synchronization fails with standard settings. However, I recommend trying to press **Synchronize** again or several times in case of failure. Due to the random nature of the process, there's a good chance of achieving a noise configuration that allows smooth synchronization even without changing parameters.
+
+After applying the changes, you can review the results. For convenience, there is a **"View"** block at the top of the panel, where you can switch between LODs and editable objects. There may be minor imperfections, which can be corrected manually.
+
+#### 7.2. Re-Computing Normals
+It's important to pay attention to the seam between the head and body and also to the seams along the UV unwrap, as Metahuman actually has mesh splits at the UV seams. If sharp edges are noticeable, normals need to be recalculated, and we have developed a specific function for this.
+
+After clicking on **"Re-Compute Split Normals"**, the following will occur:
+
+1. If Align Vertices is enabled, all points that are closer than the Weld Distance will be merged into one position.
+2. Normals will be recalculated as if all seams are welded.
+
+With **Weld Distance** (in centimeters), you can control this process, but the default value is chosen to work in most cases. With a Weld Distance of more than 0.01, you might start to see points welding together that shouldn't be.
+
+**Remember**, excessive Weld Distance can result in unintended merging of points, so it should be used cautiously.
+### 8. Export
+Once all LODs look as desired, it's time to export them for use in Unreal Engine. Go to **"Export"* block
+#### 8.1. FBX
+Based on my experience, I prefer to export LODs separately because this way, you don't have to spend a lot of time configuring Material Slots in Unreal Engine. Following this logic, we have a utility for exporting. You just need to specify the path (and the name if default is not OK) and click **"Export FBX"**. There's no need to worry about settings, selecting the right objects, etc. Everything will be done for you. As a result, you should see 8 LODs for the head and 4 LODs for the body in the folder, so you can upload these files to Unreal Engine.
+#### 8.2. DNA
+The Metahuman Animation blueprint heavily relies on the DNA file. Therefore, if you want your custom Metahuman to retain the ability to perform realistic facial animations, updating the DNA file is an ESSENTIAL step.
+Note: If you don't see the necessary functionality in the **"DNA Update"** block, check the Installation Guide.
+
+All you need to do is:
+
+- Make sure the path to the original DNA file is specified at the Import block.
+- Make sure the output path is specified (it uses the same directory as the FBX).
+- Click **"Modify DNA"**. MetaReForge will record the actual positions of the bones from Blender into the DNA file (Neutral Joint Translations and Rotations, following Epic Games' terminology).
+- To assign the updated DNA file to a Metahuman in Unreal Engine, you need to drag and drop it into the Content Browser and select the relevant Skeletal Mesh.
+
+For troubleshooting, check out to our [Discord Server](https://discord.gg/qYtEq2ukDX).
