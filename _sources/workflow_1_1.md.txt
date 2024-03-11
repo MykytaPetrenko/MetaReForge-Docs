@@ -129,4 +129,49 @@ If you wish to modify any part of the body in an external application, you will 
 After achieving the desired mesh shape, it's necessary to adjust the skeleton to these changes. The Metahuman skeleton contains about a thousand bones, and editing it manually is tedious and time-consuming. Therefore, our addon includes tools to simplify this routine by transferring the deformation from the final mesh to the skeleton.
 
 To start editing the skeleton, you need to select it and switch to edit mode. If everything is done correctly, you will see the necessary tools in the MRF section on the N-panel.
-All tools transfer the deformation of the final mesh only to the selected bones, allowing for better control of the process.
+
+We recommend using the automatic armature adjustment algorithm (**Auto-Fit -> Auto**). **Advanced Fit** tab is more for non-metahuman skeletons and for handling problematic situations where the automatic algorithm does not work.
+
+### 6. Facial Expression Testing Using Control Rig in Blender
+
+<a href="./images/face_ctrls.png">
+  <p align="center">
+    <img src="./images/face_ctrls.png" width="50%" height="50%"/>
+  </p>
+</a>
+
+Now, it's possible to approximately test how facial animations will look in Unreal Engine directly in Blender. This significantly saves time, as importing into Unreal Engine takes a considerable amount of time.
+
+**IMPORTANT TO UNDERSTAND:**
+- This functionality is intended exclusively for testing facial animations with subsequent export of models to Unreal Engine.
+- The final facial expressions in Unreal Engine may differ slightly.
+- This solution is not optimized for real-time use.
+- The data required for the control rig to work is **temporary**. When loading a new blend file or restarting Blender, the control rig needs to be initialized again.
+
+#### 6.1. Initializing the Controls
+To initialize the control rig, open the **MetaReforge.FaceControls** menu on the N-panel and press the **"Init Rig Logic"** button. An Armature Object named `MRF_CTRL_RIG` will be created, through which control will be exercised similarly to the corresponding control rig in Unreal Engine. Clicking the **"Edit Pose"** button will enter you into Pose Mode for this object (this can also be done manually). Most controls work, but not all.
+The recalculation of changes in bone positions, etc., requires a lot of resources, so it can be turned off when not needed by clicking the **"Turn OFF Rig Logic"** button and then, when necessary, re-enable calculations by clicking **"Turn ON Rig Logic."**
+
+#### 6.2. Tuning Corrective Shape Keys (Morph Targets)
+For a setup of corrective shape keys, it's necessary to identify the facial expression you wish to adjust. Then, in the **"MetaReforge.FaceControls"** menu, display all non-zero shape keys by clicking on the **"Get nonzero shape keys"** button (_**action 1**_), which lists all the non-zero shape keys for the given facial expression. When changing the facial expression, the button must be pressed again to refresh the information.
+
+Next, click on the edit icon next to the selected shape key (_**action 2**_). After this, you will enter the editing mode for that particular shape key. Use the editing tools that are most convenient for you.
+
+After completing the editing, you can return to the control rig (click the **"Edit Pose"** button) and check how the face animates with the updated shape key.
+
+**IMPORTANT NOTE:**
+Metahumans use corrective shape keys only at LOD0.
+
+<a href="./images/corrective_sk.png">
+  <p align="center">
+    <img src="./images/corrective_sk.png" width="25%" height="25%"/>
+  </p>
+</a>
+
+### 7. Applying Changes to Exportable Objects
+When the creative part of the work is completed, it's necessary to transfer all changes to the exportable models. For this, we go to the **"Update Original"** block. By clicking on the **"Synchronize"** button, changes from the Final Mesh (more precisely, the difference between the Final Mesh and the Initial Mesh) will be applied to the individual LODs, and the updated position of the bones will also be applied to the original armature objects.
+
+A few parameters are available for dealing with exceptional cases:
+
+- **Use Noise:** Default is True. It introduces a small amount of noise to the vertex positions at the time of binding. The Surface Deform modifier, which this operator is based on, fails to work if the vertex positions are identical. The noise value is usually extremely small, making its visual impact imperceptible, but it's sufficient for the Surface Deform algorithm to bind successfully.
+- **Min, Max:** The minimum and maximum values of the noise in centimeters. These should only be increased if synchronization fails with standard settings. However, I recommend trying to press **Synchronize** again or several times in case of failure. Due to the random nature of the process, there's a good chance of achieving a noise configuration that allows smooth synchronization even without changing parameters.
