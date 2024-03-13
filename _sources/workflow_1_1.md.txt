@@ -103,11 +103,12 @@ Then you need to transfer changes from skin and teeth to the other objects.
 
 #### 4.2. How to transfer defromation from one edit object to another (eyeshels, eyelashes etc.)
 To transfer deformations, you need 
-1. to select the necessary item from the list (_**action 1**_) to which you want to transfer the deformations. 
-2. Next, you need to set up the transfer. You can specify the basis and final objects manually or, as shown in the figure: enter the edit_id of the mesh from which the deformations will be transferred (_**action 2**_) and press the arrow button (_**action 3**_). If everything is specified correctly, then the basis and final objects should be determined automatically.
-3. By default, the surface deform modifier will be used to transfer changes (in short, the vertices of the mesh will be attached to the closest polygons of the source mesh. [Learn more](https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/surface_deform.html)). In some cases, it may not work as well as desired, for example, it may warp or significantly stretch the shape of the original objects, so an option with enabling the Laplacian deform (_**action 4**_) has been added (in brief, this modifier keeps the anchor vertices in fixed positions and calculates the optimal locations of all the remaining vertices to preserve the original geometric details. [Learn more](https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/laplacian_deform.html)). In this case, points that are close (closer than "Lapl. Thresh.", _**action 5**_) to the mesh from which the transformations are transferred will be transferred using surface deform (attached to the surface), and points that are further will be reconstructed using Laplacian deform. **For example**, when transferring deformations from the main body mesh to the eyelashes, the roots of the eyelashes will be attached to the nearest polygons on the eyelids, while the rest of the eyelash will not be directly attached to the body but will try to preserve the original shape of the eyelash as much as possible taking into account the new location of the eyelash root.
-4. Click transfer (_**action 6**_)
+1. to select the necessary item from the list (_**1**_, see figure) to which you want to transfer the deformations. 
+2. Next, you need to set up the transfer. You can specify the basis and final objects manually or, as shown in the figure: enter the edit_id of the mesh from which the deformations will be transferred (_**2**_, see figure) and press the arrow button (_**3**_, see figure). If everything is specified correctly, then the basis and final objects should be determined automatically.
+3. By default, the surface deform modifier will be used to transfer changes (in short, the vertices of the mesh will be attached to the closest polygons of the source mesh. [Learn more](https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/surface_deform.html)). In some cases, it may not work as well as desired, for example, it may warp or significantly stretch the shape of the original objects, so an option with enabling the Laplacian deform (_**4**_, see figure) has been added (in brief, this modifier keeps the anchor vertices in fixed positions and calculates the optimal locations of all the remaining vertices to preserve the original geometric details. [Learn more](https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/laplacian_deform.html)). In this case, points that are closer than "Lapl. Thresh." (_**5**_, see figure) to the mesh from which the transformations are transferred will be transferred using surface deform (attached to the surface), and points that are further will be reconstructed using Laplacian deform. **For example**, when transferring deformations from the main body mesh to the eyelashes, the roots of the eyelashes will be attached to the nearest polygons on the eyelids, while the rest of the eyelash will not be directly attached to the body but will try to preserve the original shape of the eyelash as much as possible taking into account the new location of the eyelash root.
+4. Click transfer (_**6**_, see figure)
 5. Revise the changes after the transfer and fix minor problems.
+
 <a href="./images/transfer_edit_shape.png">
   <p align="center">
     <img src="./images/transfer_edit_shape.png" width="35%" height="35%"/>
@@ -122,7 +123,7 @@ Despite the lengthy description, the process is simpler than it seems. **The ski
 3. **Eyelashes** - Transfer the deformation from "skin" with Laplacian Deform enabled (thresh >= 0.1).
 4. **Eye Edge, Cartilage** - Transfer the deformation from "skin" with Laplacian Deform disabled.
 
-### 4.3. Editing in third party application:
+#### 4.3. Editing in third party application:
 If you wish to modify any part of the body in an external application, you will need to export the necessary Final Mesh and then, after editing, import it back into Blender and assign it in the 'Final' field for the corresponding body part. It's important to ensure that the vertex order remains unchanged.
 
 ### 5. Editing the Armature
@@ -153,18 +154,21 @@ To initialize the control rig, open the **MetaReforge.FaceControls** menu on the
 The recalculation of changes in bone positions, etc., requires a lot of resources, so it can be turned off when not needed by clicking the **"Turn OFF Rig Logic"** button and then, when necessary, re-enable calculations by clicking **"Turn ON Rig Logic."**
 
 #### 6.2. Tuning Corrective Shape Keys (Morph Targets)
-For a setup of corrective shape keys, it's necessary to identify the facial expression you wish to adjust. Then, in the **"MetaReforge.FaceControls"** menu, display all non-zero shape keys by clicking on the **"Get nonzero shape keys"** button (_**action 1**_), which lists all the non-zero shape keys for the given facial expression. When changing the facial expression, the button must be pressed again to refresh the information.
+For a setup of corrective shape keys, it's necessary to identify the facial expression you wish to adjust. Then, in the **"MetaReforge.FaceControls"** menu, display all non-zero shape keys by clicking on the **"Refresh nonzero shape keys"** button (_**1**_, see figure), which lists all the non-zero shape keys for the given facial expression. When changing the facial expression, the button must be pressed again to refresh the information.
 
-Next, click on the edit icon next to the selected shape key (_**action 2**_). After this, you will enter the editing mode for that particular shape key. Use the editing tools that are most convenient for you.
+Next, click on the edit icon or the sculpt icon next (_**2**_, see figure) to enter edit mode or sculpt mode preconfigured for editing the particular shape key.
 
-After completing the editing, you can return to the control rig (click the **"Edit Pose"** button) and check how the face animates with the updated shape key.
+Optionally you may also disable rig logic (_**3**_, see figure). This may be necessary to improve performance during editing, as the enabled rig logic significantly reduces performance.
+
+After completing the editing, you can include the shape key to the syncronization list by clicking the checkmark button (_**4**_, see figure). 
+Then you can return to the control rig (click the **"Edit Pose"** button) and check how the face animates with the updated shape key or do the next steps of the workflow from the object mode.
 
 **IMPORTANT NOTE:**
 Metahumans use corrective shape keys only at LOD0.
 
 <a href="./images/corrective_sk.png">
   <p align="center">
-    <img src="./images/corrective_sk.png" width="25%" height="25%"/>
+    <img src="./images/corrective_sk.png" width="35%" height="35%"/>
   </p>
 </a>
 
@@ -172,10 +176,17 @@ Metahumans use corrective shape keys only at LOD0.
 #### 7.1. Synchronization (Transferring Changes to the Exportable Objects)
 When the creative part of the work is completed, it's necessary to transfer all changes to the exportable models. For this, we go to the **"Update Original"** block. By clicking on the **"Synchronize"** button, changes from the Final Mesh (more precisely, the difference between the Final Mesh and the Initial Mesh) will be applied to the individual LODs, and the updated position of the bones will also be applied to the original armature objects.
 
-A few parameters are available for dealing with exceptional cases:
+<a href="./images/update_original.png">
+  <p align="center">
+    <img src="./images/update_original.png" width="35%" height="35%"/>
+  </p>
+</a>
 
-- **Use Noise:** Default is True. It introduces a small amount of noise to the vertex positions at the time of binding. The Surface Deform modifier, which this operator is based on, fails to work if the vertex positions are identical. The noise value is usually extremely small, making its visual impact imperceptible, but it's sufficient for the Surface Deform algorithm to bind successfully.
-- **Min, Max:** The minimum and maximum values of the noise in centimeters. These should only be increased if synchronization fails with standard settings. However, I recommend trying to press **Synchronize** again or several times in case of failure. Due to the random nature of the process, there's a good chance of achieving a noise configuration that allows smooth synchronization even without changing parameters.
+- **Use Noise (1, see fig. above):** Default is True. It introduces a small amount of noise to the vertex positions at the time of binding. The Surface Deform modifier, which this operator is based on, fails to work if the vertex positions are identical. The noise value is usually extremely small, making its visual impact imperceptible, but it's sufficient for the Surface Deform algorithm to bind successfully.
+- **Min, Max (2, see fig.):** The minimum and maximum values of the noise in centimeters. These should only be increased if synchronization fails with standard settings. However, I recommend trying to press **Synchronize** again or several times in case of failure. Due to the random nature of the process, there's a good chance of achieving a noise configuration that allows smooth synchronization even without changing parameters.
+- **Updating the shape key list (3, see fig.)**: Several options are available for updating the shape key list. **Refresh** - updates the list of keys while preserving their original values. It is recommended to use this when some keys have already been set (for example, marked from the nonzero [shape keys list](#62-tuning-corrective-shape-keys-morph-targets)). **Check All** - updates the list of all keys and marks them for subsequent synchronization. **Uncheck All** - does the same but disables all keys.
+- **Enable/Disable Transferring Shape Key (4, see fig.)**: The checkbox to the left of the key name enables or disables synchronization of that key. 
+- **Max LOD (5, see fig.)**: The number to the right of the key name indicates the maximum LOD with which this key will be synchronized. For example, all corrective morph targets for a Metahuman face exist only for LOD0, so the corresponding field is marked with 0, meaning this Morph target will only be transferred to LOD0. If you want to create your custom key and transfer it to all LODs, you can do so. For instance, if 5 is specified in the corresponding field, the key will be transferred to LODs from 0 to 5.
 
 After applying the changes, you can review the results. For convenience, there is a **"View"** block at the top of the panel, where you can switch between LODs and editable objects. There may be minor imperfections, which can be corrected manually.
 
@@ -190,11 +201,14 @@ After clicking on **"Re-Compute Split Normals"**, the following will occur:
 With **Weld Distance** (in centimeters), you can control this process, but the default value is chosen to work in most cases. With a Weld Distance of more than 0.01, you might start to see points welding together that shouldn't be.
 
 **Remember**, excessive Weld Distance can result in unintended merging of points, so it should be used cautiously.
-### 8. Export
+### 8. Cloth
+
+
+### 9. Export
 Once all LODs look as desired, it's time to export them for use in Unreal Engine. Go to **"Export"* block
-#### 8.1. FBX
+#### 9.1. FBX
 Based on my experience, I prefer to export LODs separately because this way, you don't have to spend a lot of time configuring Material Slots in Unreal Engine. Following this logic, we have a utility for exporting. You just need to specify the path (and the name if default is not OK) and click **"Export FBX"**. There's no need to worry about settings, selecting the right objects, etc. Everything will be done for you. As a result, you should see 8 LODs for the head and 4 LODs for the body in the folder, so you can upload these files to Unreal Engine.
-#### 8.2. DNA
+#### 9.2. DNA
 The Metahuman Animation blueprint heavily relies on the DNA file. Therefore, if you want your custom Metahuman to retain the ability to perform realistic facial animations, updating the DNA file is an ESSENTIAL step.
 Note: If you don't see the necessary functionality in the **"DNA Update"** block, check the Installation Guide.
 
