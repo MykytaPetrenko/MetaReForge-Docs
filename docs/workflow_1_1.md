@@ -52,7 +52,9 @@ The import operation can take up to a few minutes. Afterwards, you will see two 
 
     For all other cases, the "Build Head from DNA" option is preferred.
 ```
-``` note:: It's not recommended to import FBX files in any other way. The addon removes unnecessary elements, analyzes LODs, and assigns them to the corresponding internal properties (which can be viewed by expanding the "Head Objects" and "Body Objects" drop-down lists).
+```eval_rst
+.. warning::
+    It's not recommended to import FBX files in any other way. The addon removes unnecessary elements, analyzes LODs, and assigns them to the corresponding internal properties (which can be viewed by expanding the "Head Objects" and "Body Objects" drop-down lists).
 ```
 ### 2. Creating Edit Meshes, Edit Armature, and Other Auxiliary Objects
 Once the FBX files are imported, we can proceed to initialize auxiliary and editable objects. For this, we move to the **"Edit Shape"** block.
@@ -150,11 +152,13 @@ We recommend using the automatic armature adjustment algorithm (**Auto-Fit -> Au
 
 Now, it's possible to approximately test how facial animations will look in Unreal Engine directly in Blender. This significantly saves time, as importing into Unreal Engine takes a considerable amount of time.
 
-**IMPORTANT TO UNDERSTAND:**
-- This functionality is intended exclusively for testing facial animations with subsequent export of models to Unreal Engine.
-- The final facial expressions in Unreal Engine may differ slightly.
-- This solution is not optimized for real-time use.
-- The data required for the control rig to work is **temporary**. When loading a new blend file or restarting Blender, the control rig needs to be initialized again.
+```eval_rst
+.. important::
+    - This functionality is intended exclusively for testing facial animations with subsequent export of models to Unreal Engine.
+    - The final facial expressions in Unreal Engine may differ slightly.
+    - This solution is not optimized for real-time use.
+    - The data required for the control rig to work is **temporary**. When loading a new blend file or restarting Blender, the control rig needs to be initialized again.
+```
 
 #### 6.1. Initializing the Controls
 To initialize the control rig, open the **MetaReforge.FaceControls** menu on the N-panel and press the **"Init Rig Logic"** button. An Armature Object named `MRF_CTRL_RIG` will be created, through which control will be exercised similarly to the corresponding control rig in Unreal Engine. Clicking the **"Edit Pose"** button will enter you into Pose Mode for this object (this can also be done manually). Most controls work, but not all.
@@ -170,8 +174,11 @@ Optionally you may also disable rig logic (_**3**_, see figure). This may be nec
 After completing the editing, you can include the shape key to the syncronization list by clicking the checkmark button (_**4**_, see figure). 
 Then you can return to the control rig (click the **"Edit Pose"** button) and check how the face animates with the updated shape key or do the next steps of the workflow from the object mode.
 
-**IMPORTANT NOTE:**
-Metahumans use corrective shape keys only at LOD0.
+```eval_rst
+.. important::
+    Metahumans use corrective shape keys only at LOD0.
+```
+
 
 <a href="./images/corrective_sk.png">
   <p align="center">
