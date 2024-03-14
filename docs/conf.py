@@ -20,7 +20,6 @@ release = '1.0'
 
 extensions = [
     'recommonmark',
-    'sphinx_rtd_theme',
 ]
 
 source_suffix = {
@@ -37,7 +36,12 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_extra_path = ['images']
-html_theme = 'sphinx_rtd_theme'
+
+extensions.append("sphinx_wagtail_theme")
+html_theme = 'sphinx_wagtail_theme'
+
+# extensions.append("sphinx_rtd_theme")
+# html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 html_css_files = [
