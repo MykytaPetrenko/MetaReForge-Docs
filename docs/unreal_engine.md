@@ -1,7 +1,9 @@
 # Reimport Metahuman in Unreal Engine
-**Important Notes:**
-- In our workflow, we highly recommend reimporting instead of simple importing. This approach slightly reduces the time needed for subsequent setup.
-- We also recommend making a duplicate of the original skeletal mesh before making any changes.
+```eval_rst
+.. important::
+    - In our workflow, we highly recommend reimporting instead of simple importing. This approach slightly reduces the time needed for subsequent setup.
+    - We also recommend making a duplicate of the original skeletal mesh before making any changes.
+```
 
 There are 4 steps
 1. **Open the Skeletal Mesh to Modify.** Open the Skeletal mesh that you intend to modify.

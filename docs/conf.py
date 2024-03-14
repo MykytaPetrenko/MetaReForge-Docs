@@ -39,7 +39,17 @@ html_extra_path = ['images']
 
 extensions.append("sphinx_wagtail_theme")
 html_theme = 'sphinx_wagtail_theme'
+project = "MetaReForge"
 
+# These are options specifically for the Wagtail Theme.
+html_theme_options = dict(
+    project_name = "My Project",
+    logo = "./images/logo.png",
+    logo_alt = "MetaReForge",
+    logo_height = 59,
+    logo_url = "/",
+    logo_width = 45,
+)
 # extensions.append("sphinx_rtd_theme")
 # html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
