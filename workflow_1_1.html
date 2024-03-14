@@ -172,8 +172,8 @@ We’ve designed MetaReForge addon interface to be as clear and structured as po
 </ul>
 <p>For all other cases, the “Build Head from DNA” option is preferred.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>It’s not recommended to import FBX files in any other way. The addon removes unnecessary elements, analyzes LODs, and assigns them to the corresponding internal properties (which can be viewed by expanding the “Head Objects” and “Body Objects” drop-down lists).</p>
 </div>
 </section>
@@ -271,13 +271,15 @@ Next, in Sculpt Mode (enable x symmetry if you need), you can work on the skin m
     <img src="./images/face_ctrls.png"/>
   </p>
 </a><p>Now, it’s possible to approximately test how facial animations will look in Unreal Engine directly in Blender. This significantly saves time, as importing into Unreal Engine takes a considerable amount of time.</p>
-<p><strong>IMPORTANT TO UNDERSTAND:</strong></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <ul class="simple">
 <li><p>This functionality is intended exclusively for testing facial animations with subsequent export of models to Unreal Engine.</p></li>
 <li><p>The final facial expressions in Unreal Engine may differ slightly.</p></li>
 <li><p>This solution is not optimized for real-time use.</p></li>
 <li><p>The data required for the control rig to work is <strong>temporary</strong>. When loading a new blend file or restarting Blender, the control rig needs to be initialized again.</p></li>
 </ul>
+</div>
 <section id="initializing-the-controls">
 <h3>6.1. Initializing the Controls<a class="headerlink" href="#initializing-the-controls" title="Link to this heading">¶</a></h3>
 <p>To initialize the control rig, open the <strong>MetaReforge.FaceControls</strong> menu on the N-panel and press the <strong>“Init Rig Logic”</strong> button. An Armature Object named <code class="docutils literal notranslate"><span class="pre">MRF_CTRL_RIG</span></code> will be created, through which control will be exercised similarly to the corresponding control rig in Unreal Engine. Clicking the <strong>“Edit Pose”</strong> button will enter you into Pose Mode for this object (this can also be done manually). Most controls work, but not all.
@@ -290,8 +292,10 @@ The recalculation of changes in bone positions, etc., requires a lot of resource
 <p>Optionally you may also disable rig logic (<em><strong>3</strong></em>, see figure). This may be necessary to improve performance during editing, as the enabled rig logic significantly reduces performance.</p>
 <p>After completing the editing, you can include the shape key to the syncronization list by clicking the checkmark button (<em><strong>4</strong></em>, see figure).
 Then you can return to the control rig (click the <strong>“Edit Pose”</strong> button) and check how the face animates with the updated shape key or do the next steps of the workflow from the object mode.</p>
-<p><strong>IMPORTANT NOTE:</strong>
-Metahumans use corrective shape keys only at LOD0.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Metahumans use corrective shape keys only at LOD0.</p>
+</div>
 <a href="./images/corrective_sk.png">
   <p align="center">
     <img src="./images/corrective_sk.png"/>
