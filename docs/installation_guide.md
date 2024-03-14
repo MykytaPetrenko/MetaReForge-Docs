@@ -46,7 +46,7 @@ The easiest way to connect the library is to use a version of Blender built on P
 Step-by-step Installation Instructions
 1. Install/unzip compatible Blender with python 3.9 support
 2. Unpack the Metahuman-DNA-Calibration archive.
-3. Install MetaReForge (see [Section 1](#1-installing-metareforge-bledner-add-on))
+3. Install MetaReForge (see [Section 1](#installing-metareforge-bledner-add-on))
 4. Expand the add-on preferences, specify the path to any temporary folder for download (*1*), click download (*2*), click **"Copy Binaries from Maya plugin"** (*3*). The "Library files are missing" check should change to "Librart files are found".
 
     **Note:** You can directly specify the path to the DNACalibration root skipping (*2*) if you already have it, instead of downloading it.
