@@ -44,11 +44,13 @@ project = "MetaReForge"
 # These are options specifically for the Wagtail Theme.
 html_theme_options = dict(
     project_name = "MetaReForge",
-    logo = "./images/logo.png",
+    logo = "img/logo.png",
     logo_alt = "MetaReForge",
-    logo_height = 59,
+    logo_height = 64,
     logo_url = "/",
-    logo_width = 45,
+    logo_width = 64,
+    github_url = "https://github.com/MykytaPetrenko/MetaReForge-Docs"
+
 )
 # extensions.append("sphinx_rtd_theme")
 # html_theme = 'sphinx_rtd_theme'
