@@ -11,7 +11,7 @@ def setup(app):
     app.add_transform(AutoStructify)
 
 project = 'MetaReForge Docs'
-copyright = '2023, Sqeezy Pixels (Mykyta Petrenko)'
+copyright = '2024, Sqeezy Pixels (Mykyta Petrenko)'
 author = 'Sqeezy Pixels (Mykyta Petrenko)'
 release = '1.0'
 
@@ -46,12 +46,15 @@ html_theme_options = dict(
     project_name = "MetaReForge",
     logo = "img/mrf_logo.svg",
     logo_alt = "MetaReForge",
-    logo_height = 150,
+    logo_height = 75,
     logo_url = "https://mykytapetrenko.github.io/MetaReForge-Docs/",
-    logo_width = 142,
+    logo_width = 71,
     github_url = "https://github.com/MykytaPetrenko/MetaReForge-Docs/tree/main/docs/"
 
 )
+
+html_theme_options = dict(header_links = "Purchase|https://www.artstation.com/a/32654843")
+
 # extensions.append("sphinx_rtd_theme")
 # html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
