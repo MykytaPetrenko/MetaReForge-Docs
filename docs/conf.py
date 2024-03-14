@@ -44,11 +44,11 @@ project = "MetaReForge"
 # These are options specifically for the Wagtail Theme.
 html_theme_options = dict(
     project_name = "MetaReForge",
-    logo = "img/logo.png",
+    logo = "img/mrf_logo.svg",
     logo_alt = "MetaReForge",
-    logo_height = 64,
-    logo_url = "/",
-    logo_width = 64,
+    logo_height = 150,
+    logo_url = "https://mykytapetrenko.github.io/MetaReForge-Docs/",
+    logo_width = 142,
     github_url = "https://github.com/MykytaPetrenko/MetaReForge-Docs/tree/main/docs"
 
 )
