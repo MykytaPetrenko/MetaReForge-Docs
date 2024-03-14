@@ -49,11 +49,12 @@ html_theme_options = dict(
     logo_height = 75,
     logo_url = "https://mykytapetrenko.github.io/MetaReForge-Docs/",
     logo_width = 71,
-    github_url = "https://github.com/MykytaPetrenko/MetaReForge-Docs/tree/main/docs/"
+    github_url = "https://github.com/MykytaPetrenko/MetaReForge-Docs/tree/main/docs/",
+    header_links = "Purchase|https://www.artstation.com/a/32654843"
 
 )
 
-html_theme_options = dict(header_links = "Purchase|https://www.artstation.com/a/32654843")
+html_theme_options = dict()
 
 # extensions.append("sphinx_rtd_theme")
 # html_theme = 'sphinx_rtd_theme'
