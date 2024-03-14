@@ -26,7 +26,7 @@ First, we need to prepare the files for editing. You will need:
       </p>
    </a>
 
-3. Optionaly you may use the head from FBX file. **It is not recommended, but useful in certain cases listed in the [Import](#1-import) section**
+3. Optionaly you may use the head from FBX file. **It is not recommended, but useful in certain cases listed in the [Import](#import) section**
    - `Content/Metahumans/<METAHUMAN_NAME>/Face/<METAHUMAN_NAME>_FaceMesh`
    - right-click on the corresponding skeletal mesh in the content browser Asset Actions - Export as FBX).
    - Convert FBX with [Autodesk FBX 2013 Converter](https://aps.autodesk.com/developer/overview/fbx-converter-archives). Do not ignore this step because otherwise, some data, such as shape keys, will be lost! The converter is not supported on Windows 11.
@@ -37,7 +37,7 @@ The first thing to do when opening a new scene in Blender is to set the units of
 ### 1. Import
 To import files, use the **"Import"** block on the N-panel of the addon (Object mode). Specify the path to the DNA file and the body FBX file. and click **"Import"**. The head mesh will be built from the DNA file. **"Morph Thresh."** propery defines a threshold to compare vertex position equality when computing morph target deltas (cut off very small deltas).
 
-The import operation can take up to a few minutes. Afterwards, you will see two collections: "FBX_HEAD" and "FBX_BODY". The objects that are created in these collections are intended for further export as FBX files. Unlike previous versions, in Metareforge 1.1 each LOD of the head is represented by several objects. This helps in more conveniently editing individual objects in third-party applications, as well as more accurately transferring changes from the editable object to the objects intended for export to UE (for more details on transferring changes, refer to [section 2](#2-creating-edit-meshes-edit-armature-and-other-auxiliary-objects)). 
+The import operation can take up to a few minutes. Afterwards, you will see two collections: "FBX_HEAD" and "FBX_BODY". The objects that are created in these collections are intended for further export as FBX files. Unlike previous versions, in Metareforge 1.1 each LOD of the head is represented by several objects. This helps in more conveniently editing individual objects in third-party applications, as well as more accurately transferring changes from the editable object to the objects intended for export to UE (for more details on transferring changes, refer to [section 2](#creating-edit-meshes-edit-armature-and-other-auxiliary-objects)). 
 
 If you want to import the head from FBX file you may untick "Build Head from DNA" and select head FBX file.
 Importing the head FBX files is recommended only in a few situations:
@@ -204,8 +204,8 @@ Select the desired clothing item from the `Components` list. Then, in `Details` 
       </p>
    </a>
 - In the details, the Edit ID should be "skin." This indicates that deformations will be transferred to the clothing from the Edit Mesh with the same Edit ID.
-- Deformations will be transferred to the clothing via the "Update Original" tab (if the Cloth button is pressed). [See section 8](#8-applying-changes-to-exportable-objects)
-- Exporting clothing is done through the general Export tab (if the Cloth button is pressed). [See section 9](#9-export)
+- Deformations will be transferred to the clothing via the "Update Original" tab (if the Cloth button is pressed). [See section 8](#applying-changes-to-exportable-objects)
+- Exporting clothing is done through the general Export tab (if the Cloth button is pressed). [See section 9](#export)
 
 ### 8. Applying Changes to Exportable Objects
 #### 8.1. Synchronization (Transferring Changes to the Exportable Objects)
@@ -219,7 +219,7 @@ When the creative part of the work is completed, it's necessary to transfer all 
 
 - **Use Noise (1, see fig. above):** Default is True. It introduces a small amount of noise to the vertex positions at the time of binding. The Surface Deform modifier, which this operator is based on, fails to work if the vertex positions are identical. The noise value is usually extremely small, making its visual impact imperceptible, but it's sufficient for the Surface Deform algorithm to bind successfully.
 - **Min, Max (2, see fig.):** The minimum and maximum values of the noise in centimeters. These should only be increased if synchronization fails with standard settings. However, I recommend trying to press **Synchronize** again or several times in case of failure. Due to the random nature of the process, there's a good chance of achieving a noise configuration that allows smooth synchronization even without changing parameters.
-- **Updating the shape key list (3, see fig.)**: Several options are available for updating the shape key list. **Refresh** - updates the list of keys while preserving their original values. It is recommended to use this when some keys have already been set (for example, marked from the nonzero [shape keys list](#62-tuning-corrective-shape-keys-morph-targets)). **Check All** - updates the list of all keys and marks them for subsequent synchronization. **Uncheck All** - does the same but disables all keys.
+- **Updating the shape key list (3, see fig.)**: Several options are available for updating the shape key list. **Refresh** - updates the list of keys while preserving their original values. It is recommended to use this when some keys have already been set (for example, marked from the nonzero [shape keys list](#tuning-corrective-shape-keys-morph-targets)). **Check All** - updates the list of all keys and marks them for subsequent synchronization. **Uncheck All** - does the same but disables all keys.
 - **Enable/Disable Transferring Shape Key (4, see fig.)**: The checkbox to the left of the key name enables or disables synchronization of that key. 
 - **Max LOD (5, see fig.)**: The number to the right of the key name indicates the maximum LOD with which this key will be synchronized. For example, all corrective morph targets for a Metahuman face exist only for LOD0, so the corresponding field is marked with 0, meaning this Morph target will only be transferred to LOD0. If you want to create your custom key and transfer it to all LODs, you can do so. For instance, if 5 is specified in the corresponding field, the key will be transferred to LODs from 0 to 5.
 - **Enable/Disable Transferring Targets (6, see fig.).** By default the deformation are transfered to all types for objects (head, body, cloth) but you are allowed to enable/disable any of them.
