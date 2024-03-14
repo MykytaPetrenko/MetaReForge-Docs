@@ -68,12 +68,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#tuning-corrective-shape-keys-morph-targets">6.2. Tuning Corrective Shape Keys (Morph Targets)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#applying-changes-to-exportable-objects">7. Applying Changes to Exportable Objects</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#synchronization-transferring-changes-to-the-exportable-objects">7.1. Synchronization (Transferring Changes to the Exportable Objects)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#re-computing-normals">7.2. Re-Computing Normals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloth">7. Cloth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applying-changes-to-exportable-objects">8. Applying Changes to Exportable Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synchronization-transferring-changes-to-the-exportable-objects">8.1. Synchronization (Transferring Changes to the Exportable Objects)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#re-computing-normals">8.2. Re-Computing Normals</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#cloth">8. Cloth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#export">9. Export</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#fbx">9.1. FBX</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dna">9.2. DNA</a></li>
@@ -124,7 +124,7 @@ We’ve designed MetaReForge addon interface to be as clear and structured as po
 </ul>
 <a href="./images/export_as_fbx.png">
    <p align="center">
-      <img src="./images/export_as_fbx.png" width="50%" height="50%"/>
+      <img src="./images/export_as_fbx.png"/>
    </p>
 </a>  </li>
 <li><p>The DNA file. It’s usually found in the Quixel Bridge asset folder. By default, look in</p>
@@ -133,7 +133,7 @@ We’ve designed MetaReForge addon interface to be as clear and structured as po
 </ul>
 <a href="./images/get_original_dna.png">
    <p align="center">
-      <img src="./images/get_original_dna.png" width="50%" height="50%"/>
+      <img src="./images/get_original_dna.png"/>
    </p>
 </a></li>
 <li><p>Optionaly you may use the head from FBX file. <strong>It is not recommended, but useful in certain cases listed in the <a class="reference external" href="#1-import">Import</a> section</strong></p>
@@ -172,7 +172,7 @@ Importing the head FBX files is recommended only in a few situations:</p>
 </ul>
 <a href="./images/initialized.png">
   <p align="center">
-    <img src="./images/initialized.png" width="35%" height="35%"/>
+    <img src="./images/initialized.png"/>
   </p>
 </a><p>To ensure clarity, let’s review the terminology used in the addon:</p>
 <ul class="simple">
@@ -193,7 +193,7 @@ Importing the head FBX files is recommended only in a few situations:</p>
 <p>Use the <strong>“View”</strong> block at the top of the menu to switch between LODs and editable objects.
 <a href="./images/view.png"></p>
   <p align="center">
-    <img src="./images/view.png" width="35%" height="35%"/>
+    <img src="./images/view.png"/>
   </p>
 </a></section>
 <section id="editing-the-mesh">
@@ -228,7 +228,7 @@ Next, in Sculpt Mode (enable x symmetry if you need), you can work on the skin m
 </ol>
 <a href="./images/transfer_edit_shape.png">
   <p align="center">
-    <img src="./images/transfer_edit_shape.png" width="35%" height="35%"/>
+    <img src="./images/transfer_edit_shape.png"/>
   </p>
 </a><p>Despite the lengthy description, the process is simpler than it seems. <strong>The skin, teeth, and eyes are edited manually based on your artistic needs.</strong> The deformation is transferred to the other objects. For simplicity, we have compiled the following recommendations to help you quickly get oriented:</p>
 <ol class="simple">
@@ -253,7 +253,7 @@ Next, in Sculpt Mode (enable x symmetry if you need), you can work on the skin m
 <h2>6. Facial Expression Testing Using Control Rig in Blender<a class="headerlink" href="#facial-expression-testing-using-control-rig-in-blender" title="Link to this heading"></a></h2>
 <a href="./images/face_ctrls.png">
   <p align="center">
-    <img src="./images/face_ctrls.png" width="50%" height="50%"/>
+    <img src="./images/face_ctrls.png"/>
   </p>
 </a><p>Now, it’s possible to approximately test how facial animations will look in Unreal Engine directly in Blender. This significantly saves time, as importing into Unreal Engine takes a considerable amount of time.</p>
 <p><strong>IMPORTANT TO UNDERSTAND:</strong></p>
@@ -279,18 +279,52 @@ Then you can return to the control rig (click the <strong>“Edit Pose”</stron
 Metahumans use corrective shape keys only at LOD0.</p>
 <a href="./images/corrective_sk.png">
   <p align="center">
-    <img src="./images/corrective_sk.png" width="35%" height="35%"/>
+    <img src="./images/corrective_sk.png"/>
   </p>
 </a></section>
 </section>
+<section id="cloth">
+<h2>7. Cloth<a class="headerlink" href="#cloth" title="Link to this heading"></a></h2>
+<p>In version 1.1, we’ve added the ability to adjust standard Metahumans clothing to updated meshes. The process is straightforward:</p>
+<ul>
+<li><p><strong>Exporting Clothing from Unreal Engine.</strong> First, you need to export the desired clothing item from Unreal Engine. In the Content Browser, clothing is located at <code class="docutils literal notranslate"><span class="pre">Content/Metahumans/Common/&lt;SEX&gt;/&lt;HEIGHT&gt;/&lt;WEIGHT&gt;/....</span></code>. However, it’s easier to find the clothing associated with a specific Metahuman through its blueprint (<code class="docutils literal notranslate"><span class="pre">Content/Metahumans/&lt;METAHUMAN_NAME&gt;/BP_&lt;METAHUMAN_NAME&gt;</span></code>).
+Select the desired clothing item from the <code class="docutils literal notranslate"><span class="pre">Components</span></code> list. Then, in <code class="docutils literal notranslate"><span class="pre">Details</span></code> - <code class="docutils literal notranslate"><span class="pre">Mesh</span></code>, navigate to the skeletal mesh in the content browser.</p>
+ <table border="0">
+    <td>
+       <a href="./images/cloth_components.png">
+          <p align="center">
+             <img src="./images/cloth_components.png"/>
+          </p>
+       </a>
+    </td>
+    <td>
+       <a href="./images/cloth_details.png">
+          <p align="center">
+             <img src="./images/cloth_details.png"/>
+          </p>
+       </a>
+    </td>
+ </table></li>
+<li><p><strong>Export</strong> the clothing as FBX in the same way you previously exported the body.</p></li>
+<li><p><strong>Importing Clothing into Blender</strong>. In the Cloth section, set the path to the FBX file and click <strong>“Import”</strong>. You are allows you to import multiple clothing items, just repeat the import for another cloth FBX.
+<a href="./images/cloth_components.png">
+<p align="center">
+<img src="./images/cloth_blender.png" width="261" height="520"/>
+</p>
+</a></p></li>
+<li><p>In the details, the Edit ID should be “skin.” This indicates that deformations will be transferred to the clothing from the Edit Mesh with the same Edit ID.</p></li>
+<li><p>Deformations will be transferred to the clothing via the “Update Original” tab (if the Cloth button is pressed). <a class="reference external" href="#8-applying-changes-to-exportable-objects">See section 8</a></p></li>
+<li><p>Exporting clothing is done through the general Export tab (if the Cloth button is pressed). <a class="reference external" href="#9-export">See section 9</a></p></li>
+</ul>
+</section>
 <section id="applying-changes-to-exportable-objects">
-<h2>7. Applying Changes to Exportable Objects<a class="headerlink" href="#applying-changes-to-exportable-objects" title="Link to this heading"></a></h2>
+<h2>8. Applying Changes to Exportable Objects<a class="headerlink" href="#applying-changes-to-exportable-objects" title="Link to this heading"></a></h2>
 <section id="synchronization-transferring-changes-to-the-exportable-objects">
-<h3>7.1. Synchronization (Transferring Changes to the Exportable Objects)<a class="headerlink" href="#synchronization-transferring-changes-to-the-exportable-objects" title="Link to this heading"></a></h3>
+<h3>8.1. Synchronization (Transferring Changes to the Exportable Objects)<a class="headerlink" href="#synchronization-transferring-changes-to-the-exportable-objects" title="Link to this heading"></a></h3>
 <p>When the creative part of the work is completed, it’s necessary to transfer all changes to the exportable models. For this, we go to the <strong>“Update Original”</strong> block. By clicking on the <strong>“Synchronize”</strong> button, changes from the Final Mesh (more precisely, the difference between the Final Mesh and the Initial Mesh) will be applied to the individual LODs, and the updated position of the bones will also be applied to the original armature objects.</p>
 <a href="./images/update_original.png">
   <p align="center">
-    <img src="./images/update_original.png" width="35%" height="35%"/>
+    <img src="./images/update_original.png"/>
   </p>
 </a><ul class="simple">
 <li><p><strong>Use Noise (1, see fig. above):</strong> Default is True. It introduces a small amount of noise to the vertex positions at the time of binding. The Surface Deform modifier, which this operator is based on, fails to work if the vertex positions are identical. The noise value is usually extremely small, making its visual impact imperceptible, but it’s sufficient for the Surface Deform algorithm to bind successfully.</p></li>
@@ -298,11 +332,12 @@ Metahumans use corrective shape keys only at LOD0.</p>
 <li><p><strong>Updating the shape key list (3, see fig.)</strong>: Several options are available for updating the shape key list. <strong>Refresh</strong> - updates the list of keys while preserving their original values. It is recommended to use this when some keys have already been set (for example, marked from the nonzero <a class="reference external" href="#62-tuning-corrective-shape-keys-morph-targets">shape keys list</a>). <strong>Check All</strong> - updates the list of all keys and marks them for subsequent synchronization. <strong>Uncheck All</strong> - does the same but disables all keys.</p></li>
 <li><p><strong>Enable/Disable Transferring Shape Key (4, see fig.)</strong>: The checkbox to the left of the key name enables or disables synchronization of that key.</p></li>
 <li><p><strong>Max LOD (5, see fig.)</strong>: The number to the right of the key name indicates the maximum LOD with which this key will be synchronized. For example, all corrective morph targets for a Metahuman face exist only for LOD0, so the corresponding field is marked with 0, meaning this Morph target will only be transferred to LOD0. If you want to create your custom key and transfer it to all LODs, you can do so. For instance, if 5 is specified in the corresponding field, the key will be transferred to LODs from 0 to 5.</p></li>
+<li><p><strong>Enable/Disable Transferring Targets (6, see fig.).</strong> By default the deformation are transfered to all types for objects (head, body, cloth) but you are allowed to enable/disable any of them.</p></li>
 </ul>
 <p>After applying the changes, you can review the results. For convenience, there is a <strong>“View”</strong> block at the top of the panel, where you can switch between LODs and editable objects. There may be minor imperfections, which can be corrected manually.</p>
 </section>
 <section id="re-computing-normals">
-<h3>7.2. Re-Computing Normals<a class="headerlink" href="#re-computing-normals" title="Link to this heading"></a></h3>
+<h3>8.2. Re-Computing Normals<a class="headerlink" href="#re-computing-normals" title="Link to this heading"></a></h3>
 <p>It’s important to pay attention to the seam between the head and body and also to the seams along the UV unwrap, as Metahuman actually has mesh splits at the UV seams. If sharp edges are noticeable, normals need to be recalculated, and we have developed a specific function for this.</p>
 <p>After clicking on <strong>“Re-Compute Split Normals”</strong>, the following will occur:</p>
 <ol class="simple">
@@ -313,15 +348,13 @@ Metahumans use corrective shape keys only at LOD0.</p>
 <p><strong>Remember</strong>, excessive Weld Distance can result in unintended merging of points, so it should be used cautiously.</p>
 </section>
 </section>
-<section id="cloth">
-<h2>8. Cloth<a class="headerlink" href="#cloth" title="Link to this heading"></a></h2>
-</section>
 <section id="export">
 <h2>9. Export<a class="headerlink" href="#export" title="Link to this heading"></a></h2>
 <p>Once all LODs look as desired, it’s time to export them for use in Unreal Engine. Go to *<em>”Export”</em> block</p>
 <section id="fbx">
 <h3>9.1. FBX<a class="headerlink" href="#fbx" title="Link to this heading"></a></h3>
-<p>Based on my experience, I prefer to export LODs separately because this way, you don’t have to spend a lot of time configuring Material Slots in Unreal Engine. Following this logic, we have a utility for exporting. You just need to specify the path (and the name if default is not OK) and click <strong>“Export FBX”</strong>. There’s no need to worry about settings, selecting the right objects, etc. Everything will be done for you. As a result, you should see 8 LODs for the head and 4 LODs for the body in the folder, so you can upload these files to Unreal Engine.</p>
+<p>Based on my experience, I prefer to export LODs separately because this way, you don’t have to spend a lot of time configuring Material Slots in Unreal Engine. Following this logic, we have a utility for exporting. You just need to specify the path (and the name if default is not OK) and click <strong>“Export FBX”</strong>. There’s no need to worry about settings, selecting the right objects, etc. Everything will be done for you. As a result, you should see 8 LODs for the head and 4 LODs for the body in the folder, so you can upload these files to Unreal Engine.
+By default all types for objects (head, body, cloth) are exported but you are allowed to enable/disable any of them.</p>
 </section>
 <section id="dna">
 <h3>9.2. DNA<a class="headerlink" href="#dna" title="Link to this heading"></a></h3>
