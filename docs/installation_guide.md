@@ -46,7 +46,7 @@ The easiest way to connect the library is to use a version of Blender built on P
 Step-by-step Installation Instructions
 1. Install/unzip compatible Blender with python 3.9 support
 2. Unpack the Metahuman-DNA-Calibration archive.
-3. Install MetaReForge (see [Section 1](#1-installing-metareforge-bledner-add-on))
+3. Install MetaReForge (see [Section 1](#installing-metareforge-bledner-add-on))
 4. Expand the add-on preferences, specify the path to any temporary folder for download (*1*), click download (*2*), click **"Copy Binaries from Maya plugin"** (*3*). The "Library files are missing" check should change to "Librart files are found".
 
     **Note:** You can directly specify the path to the DNACalibration root skipping (*2*) if you already have it, instead of downloading it.
@@ -150,9 +150,9 @@ If you haven't installed it, you can instead specify the path to the directory w
 
 Next, you need to specify the path to the **DNA Calibration Library**. Similarly to Swig, you can either specify the path to a previously downloaded and unpacked library or specify the path where you want to download it and press the download button. This gives us the third checkmark.
 
-Final touches. You need to select the version of Python. By default, at the first launch of the add-on, it will attempt to identify the most suitable version from those installed on the computer. More about choosing the Python version was in [section 2.2.2](#222-installing-python).
+Final touches. You need to select the version of Python. By default, at the first launch of the add-on, it will attempt to identify the most suitable version from those installed on the computer. More about choosing the Python version was in [section 2.2.2](#installing-python).
 
-Next, you need to select the C++ toolset/compiler. By default, it will be set to v143 with which everything should work, but optionally you can use v142 if you additionally installed it in Visual Studio. More about choosing the version of the toolset was in [section 2.2.3](#223-installing-cc-compiler).
+Next, you need to select the C++ toolset/compiler. By default, it will be set to v143 with which everything should work, but optionally you can use v142 if you additionally installed it in Visual Studio. More about choosing the version of the toolset was in [section 2.2.3](#installing-cc-compiler).
 
 Click **"Build DNA-Calibration"**, wait a couple of minutes and it's done. Now the "Library files are missing" should change to "Library files are found". The last thing left to do is to restart Blender and see the message "Library files are linked" instead of "NOT LINKED".
 
