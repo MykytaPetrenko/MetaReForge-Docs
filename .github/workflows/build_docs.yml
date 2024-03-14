@@ -24,7 +24,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install -U sphinx
-        python -m pip install sphinx-rtd-theme
+        python -m pip install sphinx-wagtail-theme
         python -m pip install recommonmark
 
     - name: Build documentation
