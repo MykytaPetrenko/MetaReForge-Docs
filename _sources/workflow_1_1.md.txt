@@ -39,8 +39,10 @@ To import files, use the **"Import"** block on the N-panel of the addon (Object 
 
 The import operation can take up to a few minutes. Afterwards, you will see two collections: "FBX_HEAD" and "FBX_BODY". The objects that are created in these collections are intended for further export as FBX files. Unlike previous versions, in Metareforge 1.1 each LOD of the head is represented by several objects. This helps in more conveniently editing individual objects in third-party applications, as well as more accurately transferring changes from the editable object to the objects intended for export to UE (for more details on transferring changes, refer to [section 2](#creating-edit-meshes-edit-armature-and-other-auxiliary-objects)). 
 
-```important::
-If you want to import the head from FBX file you may untick "Build Head from DNA" and select head FBX file.
+``` important:: Its a note! in markdown!
+```
+
+```important:: If you want to import the head from FBX file you may untick "Build Head from DNA" and select head FBX file.
 Importing the head FBX files is recommended only in a few situations:
 - you are going to utilize your old edit meshes from Metareforge 1.0.X
 - you are going to edit a metahuman that has already been edited after importing it from Quixel Bridge.
