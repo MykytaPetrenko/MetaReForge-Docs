@@ -162,15 +162,20 @@ We’ve designed MetaReForge addon interface to be as clear and structured as po
 <h2>1. Import<a class="headerlink" href="#import" title="Link to this heading">¶</a></h2>
 <p>To import files, use the <strong>“Import”</strong> block on the N-panel of the addon (Object mode). Specify the path to the DNA file and the body FBX file. and click <strong>“Import”</strong>. The head mesh will be built from the DNA file. <strong>“Morph Thresh.”</strong> propery defines a threshold to compare vertex position equality when computing morph target deltas (cut off very small deltas).</p>
 <p>The import operation can take up to a few minutes. Afterwards, you will see two collections: “FBX_HEAD” and “FBX_BODY”. The objects that are created in these collections are intended for further export as FBX files. Unlike previous versions, in Metareforge 1.1 each LOD of the head is represented by several objects. This helps in more conveniently editing individual objects in third-party applications, as well as more accurately transferring changes from the editable object to the objects intended for export to UE (for more details on transferring changes, refer to <a class="reference external" href="#creating-edit-meshes-edit-armature-and-other-auxiliary-objects">section 2</a>).</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>If you want to import the head from FBX file you may untick “Build Head from DNA” and select head FBX file.</p>
+<p>Importing the head FBX files is recommended only in a few situations:</p>
+<ul class="simple">
+<li><p>you are going to utilize your old edit meshes from Metareforge 1.0.X</p></li>
+<li><p>you are going to edit a metahuman that has already been edited after importing it from Quixel Bridge.</p></li>
+</ul>
+<p>For all other cases, the “Build Head from DNA” option is preferred.</p>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">`Importing</span> <span class="pre">the</span> <span class="pre">head</span> <span class="pre">FBX</span> <span class="pre">files</span> <span class="pre">is</span> <span class="pre">recommended</span> <span class="pre">only</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">few</span> <span class="pre">situations:</span>
-<span class="pre">`</span></code>- you are going to utilize your old edit meshes from Metareforge 1.0.X
-<a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>- you are going to edit a metahuman that has already been edited after importing it from Quixel Bridge.</p>
-<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a>For all other cases, the “Build Head from DNA” option is preferred.</p>
-<p><strong>Note.</strong> It’s not recommended to import FBX files in any other way. The addon removes unnecessary elements, analyzes LODs, and assigns them to the corresponding internal properties (which can be viewed by expanding the “Head Objects” and “Body Objects” drop-down lists).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It’s not recommended to import FBX files in any other way. The addon removes unnecessary elements, analyzes LODs, and assigns them to the corresponding internal properties (which can be viewed by expanding the “Head Objects” and “Body Objects” drop-down lists).</p>
+</div>
 </section>
 <section id="creating-edit-meshes-edit-armature-and-other-auxiliary-objects">
 <h2>2. Creating Edit Meshes, Edit Armature, and Other Auxiliary Objects<a class="headerlink" href="#creating-edit-meshes-edit-armature-and-other-auxiliary-objects" title="Link to this heading">¶</a></h2>
