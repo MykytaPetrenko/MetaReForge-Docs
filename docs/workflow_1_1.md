@@ -179,7 +179,7 @@ In version 1.1, we've added the ability to adjust standard Metahumans clothing t
 
 - **Exporting Clothing from Unreal Engine.** First, you need to export the desired clothing item from Unreal Engine. In the Content Browser, clothing is located at `Content/Metahumans/Common/<SEX>/<HEIGHT>/<WEIGHT>/....`. However, it's easier to find the clothing associated with a specific Metahuman through its blueprint (`Content/Metahumans/<METAHUMAN_NAME>/BP_<METAHUMAN_NAME>`).
 Select the desired clothing item from the `Components` list. Then, in `Details` - `Mesh`, navigate to the skeletal mesh in the content browser.
-   <table border="0">
+   <table border="0" align="center">
       <td>
          <a href="./images/cloth_components.png">
             <p align="center">
