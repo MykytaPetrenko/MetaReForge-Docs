@@ -48,7 +48,7 @@ For all other cases, the "Build Head from DNA" option is preferred.
 
 **Note.** It's not recommended to import FBX files in any other way. The addon removes unnecessary elements, analyzes LODs, and assigns them to the corresponding internal properties (which can be viewed by expanding the "Head Objects" and "Body Objects" drop-down lists).
 
-### Creating Edit Meshes, Edit Armature, and Other Auxiliary Objects
+### 2. Creating Edit Meshes, Edit Armature, and Other Auxiliary Objects
 Once the FBX files are imported, we can proceed to initialize auxiliary and editable objects. For this, we move to the **"Edit Shape"** block.
 
 There are two parameters available:
@@ -76,7 +76,7 @@ Additionally, the add-on creates auxiliary Basis objects:
 
 After clicking on "Initialize", you will see the Final Armature and Basis Armature have already been assigned, as well as a list of various parts of the metahuman. By clicking on the arrow in each item of the list, you can select the Final Mesh for the corresponding body part. Expanding the 'Item Details', you can see the assigned Final and Basis meshes for each body part, as well as their edit_id. All these parameters are filled in automatically.
 
-### Switch Between Object Groups
+### 3. Switch Between Object Groups
 Use the **"View"** block at the top of the menu to switch between LODs and editable objects.
 <a href="./images/view.png">
   <p align="center">
@@ -84,7 +84,7 @@ Use the **"View"** block at the top of the menu to switch between LODs and edita
   </p>
 </a>
 
-### Editing the Mesh
+### 4. Editing the Mesh
 Once the auxiliary objects are initialized, you can start editing the mesh. Blender offers a wide range of editing capabilities, but if you need more, you can export the Final Mesh and edit it in an external editor.
 
 **It's crucial to remember:**
@@ -93,7 +93,7 @@ Once the auxiliary objects are initialized, you can start editing the mesh. Blen
 
 Even considering that there are now many different objects, this does not mean that each one needs to be manually edited. 
 
-#### Editing the main objects (skin, teeth, eyes)
+#### 4.1. Editing the main objects (skin, teeth, eyes)
 We can recommend the following course of action:
 
 - Position the eyes and the teeth meshes according to your sketch or simply where you, as an artist, see them fitting.
@@ -103,7 +103,7 @@ Next, in Sculpt Mode (enable x symmetry if you need), you can work on the skin m
 
 Then you need to transfer changes from skin and teeth to the other objects.
 
-#### How to transfer defromation from one edit object to another (eyeshels, eyelashes etc.)
+#### 4.2. How to transfer defromation from one edit object to another (eyeshels, eyelashes etc.)
 To transfer deformations, you need 
 1. to select the necessary item from the list (_**1**_, see figure) to which you want to transfer the deformations. 
 2. Next, you need to set up the transfer. You can specify the basis and final objects manually or, as shown in the figure: enter the edit_id of the mesh from which the deformations will be transferred (_**2**_, see figure) and press the arrow button (_**3**_, see figure). If everything is specified correctly, then the basis and final objects should be determined automatically.
@@ -117,7 +117,6 @@ To transfer deformations, you need
   </p>
 </a>
 
-
 Despite the lengthy description, the process is simpler than it seems. **The skin, teeth, and eyes are edited manually based on your artistic needs.** The deformation is transferred to the other objects. For simplicity, we have compiled the following recommendations to help you quickly get oriented:
 
 1. **Saliva** - Transfer the deformation from "teeth" with disabled Laplacian deform.
@@ -125,17 +124,17 @@ Despite the lengthy description, the process is simpler than it seems. **The ski
 3. **Eyelashes** - Transfer the deformation from "skin" with Laplacian Deform enabled (thresh >= 0.1).
 4. **Eye Edge, Cartilage** - Transfer the deformation from "skin" with Laplacian Deform disabled.
 
-#### Editing in third party application:
+#### 4.3. Editing in third party application:
 If you wish to modify any part of the body in an external application, you will need to export the necessary Final Mesh and then, after editing, import it back into Blender and assign it in the 'Final' field for the corresponding body part. It's important to ensure that the vertex order remains unchanged.
 
-### Editing the Armature
+### 5. Editing the Armature
 After achieving the desired mesh shape, it's necessary to adjust the skeleton to these changes. The Metahuman skeleton contains about a thousand bones, and editing it manually is tedious and time-consuming. Therefore, our addon includes tools to simplify this routine by transferring the deformation from the final mesh to the skeleton.
 
 To start editing the skeleton, you need to select it and switch to edit mode. If everything is done correctly, you will see the necessary tools in the MRF section on the N-panel.
 
 We recommend using the automatic armature adjustment algorithm (**Auto-Fit -> Auto**). **Advanced Fit** tab is more for non-metahuman skeletons and for handling problematic situations where the automatic algorithm does not work.
 
-### Facial Expression Testing Using Control Rig in Blender
+### 6. Facial Expression Testing Using Control Rig in Blender
 
 <a href="./images/face_ctrls.png">
   <p align="center">
@@ -151,11 +150,11 @@ Now, it's possible to approximately test how facial animations will look in Unre
 - This solution is not optimized for real-time use.
 - The data required for the control rig to work is **temporary**. When loading a new blend file or restarting Blender, the control rig needs to be initialized again.
 
-#### Initializing the Controls
+#### 6.1. Initializing the Controls
 To initialize the control rig, open the **MetaReforge.FaceControls** menu on the N-panel and press the **"Init Rig Logic"** button. An Armature Object named `MRF_CTRL_RIG` will be created, through which control will be exercised similarly to the corresponding control rig in Unreal Engine. Clicking the **"Edit Pose"** button will enter you into Pose Mode for this object (this can also be done manually). Most controls work, but not all.
 The recalculation of changes in bone positions, etc., requires a lot of resources, so it can be turned off when not needed by clicking the **"Turn OFF Rig Logic"** button and then, when necessary, re-enable calculations by clicking **"Turn ON Rig Logic."**
 
-#### Tuning Corrective Shape Keys (Morph Targets)
+#### 6.2. Tuning Corrective Shape Keys (Morph Targets)
 For a setup of corrective shape keys, it's necessary to identify the facial expression you wish to adjust. Then, in the **"MetaReforge.FaceControls"** menu, display all non-zero shape keys by clicking on the **"Refresh nonzero shape keys"** button (_**1**_, see figure), which lists all the non-zero shape keys for the given facial expression. When changing the facial expression, the button must be pressed again to refresh the information.
 
 Next, click on the edit icon or the sculpt icon next (_**2**_, see figure) to enter edit mode or sculpt mode preconfigured for editing the particular shape key.
@@ -174,7 +173,7 @@ Metahumans use corrective shape keys only at LOD0.
   </p>
 </a>
 
-### Cloth
+### 7. Cloth
 In version 1.1, we've added the ability to adjust standard Metahumans clothing to updated meshes. The process is straightforward:
 
 - **Exporting Clothing from Unreal Engine.** First, you need to export the desired clothing item from Unreal Engine. In the Content Browser, clothing is located at `Content/Metahumans/Common/<SEX>/<HEIGHT>/<WEIGHT>/....`. However, it's easier to find the clothing associated with a specific Metahuman through its blueprint (`Content/Metahumans/<METAHUMAN_NAME>/BP_<METAHUMAN_NAME>`).
@@ -207,8 +206,8 @@ Select the desired clothing item from the `Components` list. Then, in `Details` 
 - Deformations will be transferred to the clothing via the "Update Original" tab (if the Cloth button is pressed). [See section 8](#applying-changes-to-exportable-objects)
 - Exporting clothing is done through the general Export tab (if the Cloth button is pressed). [See section 9](#export)
 
-### Applying Changes to Exportable Objects
-#### Synchronization (Transferring Changes to the Exportable Objects)
+### 8. Applying Changes to Exportable Objects
+#### 8.1. Synchronization (Transferring Changes to the Exportable Objects)
 When the creative part of the work is completed, it's necessary to transfer all changes to the exportable models. For this, we go to the **"Update Original"** block. By clicking on the **"Synchronize"** button, changes from the Final Mesh (more precisely, the difference between the Final Mesh and the Initial Mesh) will be applied to the individual LODs, and the updated position of the bones will also be applied to the original armature objects.
 
 <a href="./images/update_original.png">
@@ -226,7 +225,7 @@ When the creative part of the work is completed, it's necessary to transfer all 
 
 After applying the changes, you can review the results. For convenience, there is a **"View"** block at the top of the panel, where you can switch between LODs and editable objects. There may be minor imperfections, which can be corrected manually.
 
-#### Re-Computing Normals
+#### 8.2. Re-Computing Normals
 It's important to pay attention to the seam between the head and body and also to the seams along the UV unwrap, as Metahuman actually has mesh splits at the UV seams. If sharp edges are noticeable, normals need to be recalculated, and we have developed a specific function for this.
 
 After clicking on **"Re-Compute Split Normals"**, the following will occur:
@@ -239,12 +238,12 @@ With **Weld Distance** (in centimeters), you can control this process, but the d
 **Remember**, excessive Weld Distance can result in unintended merging of points, so it should be used cautiously.
 
 
-### Export
+### 9. Export
 Once all LODs look as desired, it's time to export them for use in Unreal Engine. Go to **"Export"* block
-#### FBX
+#### 9.1. FBX
 Based on my experience, I prefer to export LODs separately because this way, you don't have to spend a lot of time configuring Material Slots in Unreal Engine. Following this logic, we have a utility for exporting. You just need to specify the path (and the name if default is not OK) and click **"Export FBX"**. There's no need to worry about settings, selecting the right objects, etc. Everything will be done for you. As a result, you should see 8 LODs for the head and 4 LODs for the body in the folder, so you can upload these files to Unreal Engine.
 By default all types for objects (head, body, cloth) are exported but you are allowed to enable/disable any of them.
-#### DNA
+#### 9.2. DNA
 The Metahuman Animation blueprint heavily relies on the DNA file. Therefore, if you want your custom Metahuman to retain the ability to perform realistic facial animations, updating the DNA file is an ESSENTIAL step.
 Note: If you don't see the necessary functionality in the **"DNA Update"** block, check the Installation Guide.
 
