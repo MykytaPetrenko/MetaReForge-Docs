@@ -70,7 +70,7 @@
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Reimport Metahuman in Unreal Engine</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/reimport.md.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/unreal_engine.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -80,7 +80,34 @@
              
   <section id="reimport-metahuman-in-unreal-engine">
 <h1>Reimport Metahuman in Unreal Engine<a class="headerlink" href="#reimport-metahuman-in-unreal-engine" title="Link to this heading"></a></h1>
-<p>Under development…</p>
+<p><strong>Important Notes:</strong></p>
+<ul class="simple">
+<li><p>In our workflow, we highly recommend reimporting instead of simple importing. This approach slightly reduces the time needed for subsequent setup.</p></li>
+<li><p>We also recommend making a duplicate of the original skeletal mesh before making any changes.</p></li>
+</ul>
+<p>There are 4 steps</p>
+<ol>
+<li><p><strong>Open the Skeletal Mesh to Modify.</strong> Open the Skeletal mesh that you intend to modify.</p></li>
+<li><p><strong>Import Settings.</strong> To reimport the base mesh, it’s necessary to set the path to the new FBX file. Then, check the transformations. All Translation and Rotation components should be set to zero, and Scale should be 1.
+<a href="./images/ue_import_settings.png"></p>
+   <p align="center">
+      <img src="./images/ue_import_settings.png"/>
+   </p>
+</a></li>
+<li><p><strong>Reimport the Base Model.</strong> Reimporting the base model can be time-consuming.</p></li>
+<li><p><strong>Reimport the Remaining LODs (if necessary for your project)</strong>. Select the required LOD, click on “Reimport (New File)”, and specify the corresponding FBX file.
+<a href="./images/reimport_lods.png"></p>
+   <p align="center">
+      <img src="./images/reimport_lods.png"/>
+   </p>
+</a></li>
+</ol>
+<p><strong>Additional Actions for Versions 1.0:</strong></p>
+<ul class="simple">
+<li><p>When reimporting the base mesh (step 3), a “Reimport Material Conflicts Resolution” window will appear. Right-click on the cells in the right column and select the same names as in the corresponding left column.</p></li>
+<li><p>Verify the setting of “Recompute Tangents” for LOD0.</p></li>
+<li><p>After reimporting LOD1-7, material order (<code class="docutils literal notranslate"><span class="pre">LOD</span></code> | <code class="docutils literal notranslate"><span class="pre">Sections</span></code>) should be fixed.</p></li>
+</ul>
 </section>
 
 
