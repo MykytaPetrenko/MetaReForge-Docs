@@ -13,7 +13,7 @@ First, we need to prepare the files for editing. You will need:
    - right-click on the corresponding skeletal mesh in the content browser Asset Actions - Export as FBX).
    <a href="./images/export_as_fbx.png">
       <p align="center">
-         <img src="./images/export_as_fbx.png" width="50%" height="50%"/>
+         <img src="./images/export_as_fbx.png"/>
       </p>
    </a>  
 
@@ -22,7 +22,7 @@ First, we need to prepare the files for editing. You will need:
 
    <a href="./images/get_original_dna.png">
       <p align="center">
-         <img src="./images/get_original_dna.png" width="50%" height="50%"/>
+         <img src="./images/get_original_dna.png"/>
       </p>
    </a>
 
@@ -58,7 +58,7 @@ There are two parameters available:
 
 <a href="./images/initialized.png">
   <p align="center">
-    <img src="./images/initialized.png" width="35%" height="35%"/>
+    <img src="./images/initialized.png"/>
   </p>
 </a>
 
@@ -80,7 +80,7 @@ After clicking on "Initialize", you will see the Final Armature and Basis Armatu
 Use the **"View"** block at the top of the menu to switch between LODs and editable objects.
 <a href="./images/view.png">
   <p align="center">
-    <img src="./images/view.png" width="35%" height="35%"/>
+    <img src="./images/view.png"/>
   </p>
 </a>
 
@@ -113,7 +113,7 @@ To transfer deformations, you need
 
 <a href="./images/transfer_edit_shape.png">
   <p align="center">
-    <img src="./images/transfer_edit_shape.png" width="35%" height="35%"/>
+    <img src="./images/transfer_edit_shape.png"/>
   </p>
 </a>
 
@@ -139,7 +139,7 @@ We recommend using the automatic armature adjustment algorithm (**Auto-Fit -> Au
 
 <a href="./images/face_ctrls.png">
   <p align="center">
-    <img src="./images/face_ctrls.png" width="50%" height="50%"/>
+    <img src="./images/face_ctrls.png"/>
   </p>
 </a>
 
@@ -170,17 +170,50 @@ Metahumans use corrective shape keys only at LOD0.
 
 <a href="./images/corrective_sk.png">
   <p align="center">
-    <img src="./images/corrective_sk.png" width="35%" height="35%"/>
+    <img src="./images/corrective_sk.png"/>
   </p>
 </a>
 
-### 7. Applying Changes to Exportable Objects
-#### 7.1. Synchronization (Transferring Changes to the Exportable Objects)
+### 7. Cloth
+In version 1.1, we've added the ability to adjust standard Metahumans clothing to updated meshes. The process is straightforward:
+
+- **Exporting Clothing from Unreal Engine.** First, you need to export the desired clothing item from Unreal Engine. In the Content Browser, clothing is located at `Content/Metahumans/Common/<SEX>/<HEIGHT>/<WEIGHT>/....`. However, it's easier to find the clothing associated with a specific Metahuman through its blueprint (`Content/Metahumans/<METAHUMAN_NAME>/BP_<METAHUMAN_NAME>`).
+Select the desired clothing item from the `Components` list. Then, in `Details` - `Mesh`, navigate to the skeletal mesh in the content browser.
+   <table border="0">
+      <td>
+         <a href="./images/cloth_components.png">
+            <p align="center">
+               <img src="./images/cloth_components.png"/>
+            </p>
+         </a>
+      </td>
+      <td>
+         <a href="./images/cloth_details.png">
+            <p align="center">
+               <img src="./images/cloth_details.png"/>
+            </p>
+         </a>
+      </td>
+   </table>
+   
+- **Export** the clothing as FBX in the same way you previously exported the body.
+- **Importing Clothing into Blender**. In the Cloth section, set the path to the FBX file and click **"Import"**. You are allows you to import multiple clothing items, just repeat the import for another cloth FBX.
+   <a href="./images/cloth_components.png">
+      <p align="center">
+         <img src="./images/cloth_blender.png" width="261" height="520"/>
+      </p>
+   </a>
+- In the details, the Edit ID should be "skin." This indicates that deformations will be transferred to the clothing from the Edit Mesh with the same Edit ID.
+- Deformations will be transferred to the clothing via the "Update Original" tab (if the Cloth button is pressed). [See section 8](#8-applying-changes-to-exportable-objects)
+- Exporting clothing is done through the general Export tab (if the Cloth button is pressed). [See section 9](#9-export)
+
+### 8. Applying Changes to Exportable Objects
+#### 8.1. Synchronization (Transferring Changes to the Exportable Objects)
 When the creative part of the work is completed, it's necessary to transfer all changes to the exportable models. For this, we go to the **"Update Original"** block. By clicking on the **"Synchronize"** button, changes from the Final Mesh (more precisely, the difference between the Final Mesh and the Initial Mesh) will be applied to the individual LODs, and the updated position of the bones will also be applied to the original armature objects.
 
 <a href="./images/update_original.png">
   <p align="center">
-    <img src="./images/update_original.png" width="35%" height="35%"/>
+    <img src="./images/update_original.png"/>
   </p>
 </a>
 
@@ -189,10 +222,11 @@ When the creative part of the work is completed, it's necessary to transfer all 
 - **Updating the shape key list (3, see fig.)**: Several options are available for updating the shape key list. **Refresh** - updates the list of keys while preserving their original values. It is recommended to use this when some keys have already been set (for example, marked from the nonzero [shape keys list](#62-tuning-corrective-shape-keys-morph-targets)). **Check All** - updates the list of all keys and marks them for subsequent synchronization. **Uncheck All** - does the same but disables all keys.
 - **Enable/Disable Transferring Shape Key (4, see fig.)**: The checkbox to the left of the key name enables or disables synchronization of that key. 
 - **Max LOD (5, see fig.)**: The number to the right of the key name indicates the maximum LOD with which this key will be synchronized. For example, all corrective morph targets for a Metahuman face exist only for LOD0, so the corresponding field is marked with 0, meaning this Morph target will only be transferred to LOD0. If you want to create your custom key and transfer it to all LODs, you can do so. For instance, if 5 is specified in the corresponding field, the key will be transferred to LODs from 0 to 5.
+- **Enable/Disable Transferring Targets (6, see fig.).** By default the deformation are transfered to all types for objects (head, body, cloth) but you are allowed to enable/disable any of them.
 
 After applying the changes, you can review the results. For convenience, there is a **"View"** block at the top of the panel, where you can switch between LODs and editable objects. There may be minor imperfections, which can be corrected manually.
 
-#### 7.2. Re-Computing Normals
+#### 8.2. Re-Computing Normals
 It's important to pay attention to the seam between the head and body and also to the seams along the UV unwrap, as Metahuman actually has mesh splits at the UV seams. If sharp edges are noticeable, normals need to be recalculated, and we have developed a specific function for this.
 
 After clicking on **"Re-Compute Split Normals"**, the following will occur:
@@ -203,13 +237,13 @@ After clicking on **"Re-Compute Split Normals"**, the following will occur:
 With **Weld Distance** (in centimeters), you can control this process, but the default value is chosen to work in most cases. With a Weld Distance of more than 0.01, you might start to see points welding together that shouldn't be.
 
 **Remember**, excessive Weld Distance can result in unintended merging of points, so it should be used cautiously.
-### 8. Cloth
 
 
 ### 9. Export
 Once all LODs look as desired, it's time to export them for use in Unreal Engine. Go to **"Export"* block
 #### 9.1. FBX
 Based on my experience, I prefer to export LODs separately because this way, you don't have to spend a lot of time configuring Material Slots in Unreal Engine. Following this logic, we have a utility for exporting. You just need to specify the path (and the name if default is not OK) and click **"Export FBX"**. There's no need to worry about settings, selecting the right objects, etc. Everything will be done for you. As a result, you should see 8 LODs for the head and 4 LODs for the body in the folder, so you can upload these files to Unreal Engine.
+By default all types for objects (head, body, cloth) are exported but you are allowed to enable/disable any of them.
 #### 9.2. DNA
 The Metahuman Animation blueprint heavily relies on the DNA file. Therefore, if you want your custom Metahuman to retain the ability to perform realistic facial animations, updating the DNA file is an ESSENTIAL step.
 Note: If you don't see the necessary functionality in the **"DNA Update"** block, check the Installation Guide.
