@@ -1,8 +1,8 @@
-# Transfer Shape to Minor Meshes (Outdated)
+# Transfer Shape to Minor Meshes (Deprecated)
 
 ```eval_rst
 .. important::
-    This is how to transfer changes to minor meshes in versions 1.1.**0**.X. In 1.1.**1**.X the process was changed
+    This is how to transfer changes to minor meshes in versions 1.1.0.X. In 1.1.1.X the process was changed
 ```
 
 #### How to transfer defromation from one edit object to another (eyeshels, eyelashes etc.)
