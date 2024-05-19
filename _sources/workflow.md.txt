@@ -1,8 +1,11 @@
-# Workflow (1.1-beta)
+# Workflow
 
-**Currently, the documentation is under development.**
+```eval_rst
+.. important::
+    This documentation describes a recommended workflow for MetaReForge 1.1.
+```
 
-In update 1.1, MetaReForge has undergone a significant number of changes, therefore familiarizing yourself with this documentation is recommended even if you have confidently used version 1.0. Overall, we have tried to adhere to the same principles as in the development of version 1.0.
+This documentation describes a recommended workflow for MetaReForge 1.1.
 We've designed MetaReForge addon interface to be as clear and structured as possible. All features are organized into blocks within the N-panel under the 'MRF' category. The majority of these features are accessible in object mode, while additional utilities for armature editing become available in armature and mesh edit modes.
 
 ### Preliminary Setup
