@@ -15,3 +15,4 @@ Welcome to MetaReForge Docs!
    workflow_1_0.md
    workflow_1_1.md
    unreal_engine.md
+   transfer_shape_deprecated.md
