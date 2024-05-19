@@ -12,7 +12,8 @@ Welcome to MetaReForge Docs!
    
    about.md
    installation_guide.md
-   workflow_1_0.md
-   workflow_1_1.md
+   workflow.md
    unreal_engine.md
+   
+   workflow_1_0.md
    transfer_shape_deprecated.md

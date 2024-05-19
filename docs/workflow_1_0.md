@@ -1,4 +1,10 @@
-# Workflow (1.0)
+# Workflow 1.0 (Deprecated)
+
+```eval_rst
+.. important::
+    This documentation describes a recommended workflow for MetaReForge 1.0 which is not supported any more. Use 1.1, it is much better and the update does not require any additional fees
+```
+
 We've designed MetaReForge addon interface to be as clear and structured as possible.  All features are organized into blocks within the N-panel under the 'MRF' category. The majority of these features are accessible in object mode, while additional utilities for armature editing become available in armature edit mode.
 Check out out [workflow tutorial](https://youtu.be/32PLLmDs9wE) on youtube
 
