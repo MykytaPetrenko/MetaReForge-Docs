@@ -76,6 +76,7 @@
 <li class="toctree-l1"><a class="reference internal" href="workflow_1_0.html">Workflow (1.0)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow_1_1.html">Workflow (1.1-beta)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unreal_engine.html">Reimport Metahuman in Unreal Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_shape_deprecated.html">Transfer Shape to Minor Meshes (Outdated)</a></li>
 </ul>
 
     </nav>
@@ -135,10 +136,10 @@
 <li><p>Currently, the MetaReForge supported for <strong>Windows only</strong>. We will extend the list of supported systems if there is a demand for it. Our code itself is generally cross-platform, but we have not tested the Add-on on other platforms, so we cannot guarantee that it will work smoothly or even work at all.</p></li>
 <li><p>Blender 4.0 is not fully supported. It works, but some actions take extremely long (’Synchronize’ takes ~10 minutes in Blender 4.0 vs 10-15 seconds in Blender 3.6)</p></li>
 </ul>
-</section>
-<section id="important-note">
-<h2>Important note<a class="headerlink" href="#important-note" title="Link to this heading">¶</a></h2>
-<p><strong>Run Blender with administrator privileges when you install the add-on and build the library!</strong></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Run Blender with administrator privileges when you install the add-on and build the library!</p>
+</div>
 </section>
 <section id="installing-metareforge-bledner-add-on">
 <h2>1. Installing MetaReForge Bledner Add-on<a class="headerlink" href="#installing-metareforge-bledner-add-on" title="Link to this heading">¶</a></h2>
@@ -211,6 +212,13 @@ If Blender is set to default, then in the Scripting tab on the left side, you wi
 </section>
 <section id="installing-python">
 <h3>2.2.2. Installing Python<a class="headerlink" href="#installing-python" title="Link to this heading">¶</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>Blender 3.6 has python 3.10</p></li>
+<li><p>Blender 4.1 has python 3.11</p></li>
+</ul>
+</div>
 <p>Python can be downloaded from the official website <a class="reference external" href="https://www.python.org/downloads/">python.org</a>. If you have Python 3.10.13, it would be perfect to use the same Python library when compiling the DNA Calibration Library. However, when you try to get an installer for the exact version, the installer may not be available, and the text on the release page will say:</p>
 <blockquote>
 <div><p><strong>No installers</strong></p>
@@ -291,7 +299,6 @@ If you haven’t installed it, you can instead specify the path to the directory
                             <ul>
 <li><a class="reference internal" href="#">Installation Guide</a><ul>
 <li><a class="reference internal" href="#system-support">System support</a></li>
-<li><a class="reference internal" href="#important-note">Important note</a></li>
 <li><a class="reference internal" href="#installing-metareforge-bledner-add-on">1. Installing MetaReForge Bledner Add-on</a></li>
 <li><a class="reference internal" href="#how-to-link-metareforge-to-metahuman-dna-calibration">2. How to link MetaReForge to Metahuman DNA Calibration</a></li>
 <li><a class="reference internal" href="#using-blender-with-python-3-9">2.1. Using Blender with python 3.9</a></li>
@@ -364,7 +371,7 @@ If you haven’t installed it, you can instead specify the path to the directory
         </div>
     </footer>
         <script src="_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script type="text/javascript" src="_static/dist/theme.js"></script>
         <script type="text/javascript" src="_static/dist/vendor.js"></script>

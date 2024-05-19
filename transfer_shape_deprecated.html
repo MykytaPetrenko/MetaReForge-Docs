@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>Reimport Metahuman in Unreal Engine &mdash; MetaReForge 1.0 documentation</title>
+        <title>Transfer Shape to Minor Meshes (Outdated) &mdash; MetaReForge 1.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="_static/dist/theme.css?v=ea6a6c20" />
@@ -15,8 +15,7 @@
             <link rel="index" title="Index" href="genindex.html" />
             <link rel="search" title="Search" href="search.html" />
             <link rel="top" title="MetaReForge 1.0 documentation" href="#" />
-            <link rel="next" title="Transfer Shape to Minor Meshes (Outdated)" href="transfer_shape_deprecated.html" />
-            <link rel="prev" title="Workflow (1.1-beta)" href="workflow_1_1.html" />
+            <link rel="prev" title="Reimport Metahuman in Unreal Engine" href="unreal_engine.html" />
     </head>
 <body>
     <script type="text/javascript" src="_static/dist/blocking.js"></script>
@@ -75,8 +74,8 @@
 <li class="toctree-l1"><a class="reference internal" href="installation_guide.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow_1_0.html">Workflow (1.0)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow_1_1.html">Workflow (1.1-beta)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Reimport Metahuman in Unreal Engine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transfer_shape_deprecated.html">Transfer Shape to Minor Meshes (Outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unreal_engine.html">Reimport Metahuman in Unreal Engine</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Transfer Shape to Minor Meshes (Outdated)</a></li>
 </ul>
 
     </nav>
@@ -97,7 +96,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Reimport Metahuman in Unreal Engine</li>
+        <li class="breadcrumb-item active" aria-current="page">Transfer Shape to Minor Meshes (Outdated)</li>
     </ol>
 </nav>
                     </div>
@@ -109,11 +108,11 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/MykytaPetrenko/MetaReForge-Docs/tree/main/docs/unreal_engine.md" rel="nofollow">
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/MykytaPetrenko/MetaReForge-Docs/tree/main/docs/transfer_shape_deprecated.md" rel="nofollow">
         <span class="btn-icon"><span class="fab fa-github"></span></span>
         <span class="btn-text">Edit on GitHub</span>
     </a>
-    <a class="btn btn-sm btn-light text-decoration-none" href="_sources/unreal_engine.md.txt" rel="nofollow">
+    <a class="btn btn-sm btn-light text-decoration-none" href="_sources/transfer_shape_deprecated.md.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -128,56 +127,56 @@
                 <div class="row">
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
-    <section id="reimport-metahuman-in-unreal-engine">
-<h1>Reimport Metahuman in Unreal Engine<a class="headerlink" href="#reimport-metahuman-in-unreal-engine" title="Link to this heading">¶</a></h1>
+    <section id="transfer-shape-to-minor-meshes-outdated">
+<h1>Transfer Shape to Minor Meshes (Outdated)<a class="headerlink" href="#transfer-shape-to-minor-meshes-outdated" title="Link to this heading">¶</a></h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<ul class="simple">
-<li><p>In our workflow, we highly recommend reimporting instead of simple importing. This approach slightly reduces the time needed for subsequent setup.</p></li>
-<li><p>We also recommend making a duplicate of the original skeletal mesh before making any changes.</p></li>
-</ul>
+<p>This is how to transfer changes to minor meshes in versions 1.1.**0**.X. In 1.1.**1**.X the process was changed</p>
 </div>
-<p>There are 4 steps</p>
-<ol>
-<li><p><strong>Open the Skeletal Mesh to Modify.</strong> Open the Skeletal mesh that you intend to modify.</p></li>
-<li><p><strong>Import Settings.</strong> To reimport the base mesh, it’s necessary to set the path to the new FBX file. Then, check the transformations. All Translation and Rotation components should be set to zero, and Scale should be 1.
-<a href="./images/ue_import_settings.png"></p>
-   <p align="center">
-      <img src="./images/ue_import_settings.png"/>
-   </p>
-</a></li>
-<li><p><strong>Reimport Base Mesh.</strong> Then click “Reimport Base Mesh” at the top. Be aware that this process can be time-consuming due to the large number of shape keys involved.
-<a href="./images/reimport_base_mesh.png"></p>
-   <p align="center">
-      <img src="./images/reimport_base_mesh.png"/>
-   </p>
-</a></li>
-<li><p><strong>Reimport the Remaining LODs (if necessary for your project)</strong>. Select the required LOD, click on “Reimport (New File)”, and specify the corresponding FBX file.
-<a href="./images/reimport_lods.png"></p>
-   <p align="center">
-      <img src="./images/reimport_lods.png"/>
-   </p>
-</a></li>
-<li><p><strong>Update DNA file.</strong> Simply drag and drop the DNA file generated by MetaReForge into the Content Browser and select the facial skeletal mesh.</p></li>
+<section id="how-to-transfer-defromation-from-one-edit-object-to-another-eyeshels-eyelashes-etc">
+<h2>How to transfer defromation from one edit object to another (eyeshels, eyelashes etc.)<a class="headerlink" href="#how-to-transfer-defromation-from-one-edit-object-to-another-eyeshels-eyelashes-etc" title="Link to this heading">¶</a></h2>
+<p>To transfer deformations, you need</p>
+<ol class="simple">
+<li><p>to select the necessary item from the list (<em><strong>1</strong></em>, see figure) to which you want to transfer the deformations.</p></li>
+<li><p>Next, you need to set up the transfer. You can specify the basis and final objects manually or, as shown in the figure: enter the edit_id of the mesh from which the deformations will be transferred (<em><strong>2</strong></em>, see figure) and press the arrow button (<em><strong>3</strong></em>, see figure). If everything is specified correctly, then the basis and final objects should be determined automatically.</p></li>
+<li><p>By default, the surface deform modifier will be used to transfer changes (in short, the vertices of the mesh will be attached to the closest polygons of the source mesh. <a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/surface_deform.html">Learn more</a>). In some cases, it may not work as well as desired, for example, it may warp or significantly stretch the shape of the original objects, so an option with enabling the Laplacian deform (<em><strong>4</strong></em>, see figure) has been added (in brief, this modifier keeps the anchor vertices in fixed positions and calculates the optimal locations of all the remaining vertices to preserve the original geometric details. <a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/laplacian_deform.html">Learn more</a>). In this case, points that are closer than “Lapl. Thresh.” (<em><strong>5</strong></em>, see figure) to the mesh from which the transformations are transferred will be transferred using surface deform (attached to the surface), and points that are further will be reconstructed using Laplacian deform. <strong>For example</strong>, when transferring deformations from the main body mesh to the eyelashes, the roots of the eyelashes will be attached to the nearest polygons on the eyelids, while the rest of the eyelash will not be directly attached to the body but will try to preserve the original shape of the eyelash as much as possible taking into account the new location of the eyelash root.</p></li>
+<li><p>Click transfer (<em><strong>6</strong></em>, see figure)</p></li>
+<li><p>Revise the changes after the transfer and fix minor problems.</p></li>
 </ol>
-<p><strong>Additional Actions for Versions 1.0:</strong></p>
-<ul class="simple">
-<li><p>When reimporting the base mesh (step 3), a “Reimport Material Conflicts Resolution” window will appear. Right-click on the cells in the right column and select the same names as in the corresponding left column.</p></li>
-<li><p>Verify the setting of “Recompute Tangents” for LOD0.</p></li>
-<li><p>After reimporting LOD1-7, material order (<code class="docutils literal notranslate"><span class="pre">LOD</span></code> | <code class="docutils literal notranslate"><span class="pre">Sections</span></code>) should be fixed.</p></li>
-</ul>
+<a href="./images/transfer_edit_shape.png">
+  <p align="center">
+    <img src="./images/transfer_edit_shape.png"/>
+  </p>
+</a><p>Despite the lengthy description, the process is simpler than it seems. <strong>The skin, teeth, and eyes are edited manually based on your artistic needs.</strong> The deformation is transferred to the other objects. For simplicity, we have compiled the following recommendations to help you quickly get oriented:</p>
+<ol class="simple">
+<li><p><strong>Saliva</strong> - Transfer the deformation from “teeth” with disabled Laplacian deform.</p></li>
+<li><p><strong>Eyeshell</strong> - Transfer the deformation from “skin” with Laplacian Deform enabled (thresh &gt;= 0.01).</p></li>
+<li><p><strong>Eyelashes</strong> - Transfer the deformation from “skin” with Laplacian Deform enabled (thresh &gt;= 0.1).</p></li>
+<li><p><strong>Eye Edge, Cartilage</strong> - Transfer the deformation from “skin” with Laplacian Deform disabled.</p></li>
+</ol>
+</section>
 </section>
 
 </main>
                         <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
-    <a class="float-left" href="workflow_1_1.html" title="Previous">
-        <span aria-hidden="true">←&nbsp;</span>Workflow (1.1-beta)
-    </a>
-    <a class="float-right" href="transfer_shape_deprecated.html" title="Next">
-        Transfer Shape to Minor Meshes (Outdated) <span aria-hidden="true">&nbsp;→</span>
+    <a class="float-left" href="unreal_engine.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Reimport Metahuman in Unreal Engine
     </a>
 </nav>
                     </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Transfer Shape to Minor Meshes (Outdated)</a><ul>
+<li><a class="reference internal" href="#how-to-transfer-defromation-from-one-edit-object-to-another-eyeshels-eyelashes-etc">How to transfer defromation from one edit object to another (eyeshels, eyelashes etc.)</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
                     
                 </div>
             </div>

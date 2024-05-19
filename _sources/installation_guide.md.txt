@@ -4,8 +4,10 @@
 - Currently, the MetaReForge supported for **Windows only**. We will extend the list of supported systems if there is a demand for it. Our code itself is generally cross-platform, but we have not tested the Add-on on other platforms, so we cannot guarantee that it will work smoothly or even work at all.
 - Blender 4.0 is not fully supported. It works, but some actions take extremely long ('Synchronize' takes ~10 minutes in Blender 4.0 vs 10-15 seconds in Blender 3.6)
 
-### Important note
-**Run Blender with administrator privileges when you install the add-on and build the library!**
+```eval_rst
+.. important::
+    Run Blender with administrator privileges when you install the add-on and build the library!
+```
 
 ### 1. Installing MetaReForge Bledner Add-on
 
@@ -83,6 +85,11 @@ PYTHON INTERACTIVE CONSOLE 3.10.13 (main, date) [MSC v.1928 64 bit (AMD64)]
 ```
 Firstly, we are interested in the major and minor versions of Python, as well as the bit-version, and the toolset/compliler used during the compilation of the Python interpreter. The micro version is not as important, but it is recommended to use the closest one. 
 #### 2.2.2. Installing Python
+```eval_rst
+.. important::
+    - Blender 3.6 has python 3.10
+    - Blender 4.1 has python 3.11
+```
 Python can be downloaded from the official website [python.org](https://www.python.org/downloads/). If you have Python 3.10.13, it would be perfect to use the same Python library when compiling the DNA Calibration Library. However, when you try to get an installer for the exact version, the installer may not be available, and the text on the release page will say:
 
 > **No installers**
